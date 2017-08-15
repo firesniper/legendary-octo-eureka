@@ -197,15 +197,19 @@
 		
 		var str_pgKey = pgp_docSerh[ "pgKey" ] ;
 		
-		var str_appParams = pgp_docSerh.fnStr_getAppParams (  ) ;
-		
-	
+		/*var fnStr_getWholeUri = function ( params ) 
+		{
+			var str_appParams = pgp_docSerh.fnStr_getAppParams (  ) ;
+			var str_servWholeUri = pgp_envState.pgp_envOpt.pgp_servBaseUrl 
+										+ str_appParams ; 
+			return str_servWholeUri ;
+		} ;*/
+		var str_servWholeUri = pgp_docSerh.fnStr_getWholeUri () ;
 		$.ajax
 		(
 			{
 				// url : "http://localhost:8081/mall_a01/overcoat?" ,
-				url				: pgp_envState.pgp_envOpt.pgp_servBaseUrl 
-									+ str_appParams ,
+				url				: str_servWholeUri ,
 				crossDomain 	: true ,
 				type			: "get" ,
 				dataType		: "jsonp" ,

@@ -294,6 +294,28 @@
 			} ,
 		}
 	) ;		
+	Object.defineProperties
+	(
+		Object.prototype ,
+		{
+			"fnStr_getWholeUri" :
+			{
+				enumerable : false ,
+				configurable : true ,
+				writable : true ,
+				value : function ( params ) 
+				{
+					var _this = this ;
+					var pgp_docSerh = _this ;
+					var str_appParams = pgp_docSerh.fnStr_getAppParams (  ) ;
+					var str_servWholeUri = pgp_envState.pgp_envOpt.pgp_servBaseUrl 
+												+ str_appParams ; 
+					return str_servWholeUri ;
+				} 
+
+			}
+		}
+	) ;
 
 	var fnStr_getDomTemp = function ( params ) 
 	{
