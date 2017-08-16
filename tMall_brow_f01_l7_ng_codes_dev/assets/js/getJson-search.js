@@ -198,7 +198,7 @@
 		
 		params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
 		if ( params.reqInc > 5 ) return ;
-		var bol_isEmer          = params.bol_isEmer ? params.bol_isEmer : true ;
+		var bol_isEmer          = params.bol_isEmer ? params.bol_isEmer : false ;
 		var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl () ;
 		var reqInc              = params.reqInc  ? params.reqInc : 0 ;
 

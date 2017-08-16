@@ -17,25 +17,21 @@ mdu_root.controller
             var str_emerUrl = pgp_envState.str_baseUrl + str_emerDir + "/" + str_tb [ 0 ] + ".js" ;
             return str_emerUrl ; 
         } ;*/
-<<<<<<< HEAD
-        
-        $http.jsonp
-        ( str_servWholeUri + '&jsonp=JSON_CALLBACK' )
-        .success
-        (
-            function ( json_data )
-            {
-                if ( Object.bol_isNullJson ( /*json_data*/ ) ) 
-=======
+
         var getAjax = function ( params )
         {
             params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
             if ( params.reqInc > 5 ) return ;
             var bol_isEmer          = params.bol_isEmer ? params.bol_isEmer : false ;
-            var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl () ;
+            var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl 
+            (
+                {
+                    str_emerDir : "/emerData_ng/" 
+                }
+            ) ;
             var str_servWholeUri    = params.pgp_docSerh.fnStr_getWholeUri () ;
             var reqInc              = params.reqInc  ? params.reqInc : 0 ;
-            var fn_cb               = params.fn_cb ;
+            // var fn_cb               = params.fn_cb ;
 
             var str_normalUri = str_servWholeUri + '&jsonp=JSON_CALLBACK' ;
             var str_servUri = bol_isEmer ? str_emerUrl : str_normalUri ;
@@ -47,7 +43,7 @@ mdu_root.controller
             .success
             (
                 function ( json_data )
->>>>>>> new1
+
                 {
                     if ( Object.bol_isNullJson ( json_data ) ) 
                     {
@@ -57,7 +53,7 @@ mdu_root.controller
                         getAjax ( params ) ;
                     } ;
                     console.log ( "json_data:" , json_data ) ;
-                    fn_cb ( json_data ) ;
+                    // fn_cb ( json_data ) ;
                 }
             )
             .error
@@ -80,7 +76,7 @@ mdu_root.controller
         ( 
             {
                 pgp_docSerh : pgp_docSerh ,
-                bol_isEmer  : true 
+                // bol_isEmer  : false 
             } 
         ) ;
     }
