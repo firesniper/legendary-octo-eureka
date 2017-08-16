@@ -308,7 +308,7 @@
 					var _this = this ;
 					var pgp_docSerh = _this ;
 					var str_appParams = pgp_docSerh.fnStr_getAppParams (  ) ;
-					var str_servWholeUri = pgp_envState.pgp_envOpt.pgp_servBaseUrl 
+					var str_servWholeUri = pgp_envState.pgp_envOpt.any_servBaseUrl 
 												+ str_appParams ; 
 					return str_servWholeUri ;
 				} 

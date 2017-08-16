@@ -1025,8 +1025,8 @@ Object.defineProperties
 			value : 
 			{
 				ary_indicate : [ "localhost" , "127.0.0" ] ,
-				pgp_servBaseUrl : "http://localhost:8080/mall_a01/" ,
-				pgp_browBaseUrl : "http://localhost:3000/public//"
+				any_servBaseUrl : "http://localhost:8080/mall_a01/" ,
+				any_browBaseUrl : "http://localhost:3000/public//"
 			}
 		} ,
 		"str_externalWeb" :
@@ -1037,8 +1037,8 @@ Object.defineProperties
 			value : 
 			{
 				ary_indicate : [ "www.firesnip.com" , "github" ] ,
-				pgp_servBaseUrl : "http://www.spitc-cn.com/mall_a01_ol/" ,
-				pgp_browBaseUrl : "http://www.firesnip.com/light7-mall_c01_ol/"
+				any_servBaseUrl : "http://www.spitc-cn.com/mall_a01_ol/" ,
+				any_browBaseUrl : "http://www.firesnip.com/light7-mall_c01_ol/"
 			}
 		} 
 	}

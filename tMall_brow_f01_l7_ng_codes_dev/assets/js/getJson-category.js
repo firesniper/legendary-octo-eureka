@@ -239,7 +239,7 @@
 			{
 
 				// url : "http://localhost:8081/mall_a01/overcoat?" ,
-				url : pgp_envState.pgp_envOpt.pgp_browBaseUrl + "_site/examples/light7-mall_c01/json/" + jsonName[ idx ] + ".json" ,
+				url : pgp_envState.pgp_envOpt.any_browBaseUrl + "_site/examples/light7-mall_c01/json/" + jsonName[ idx ] + ".json" ,
 				crossDomain : true ,
 				type : "get" ,
 				dataType : "jsonp" ,

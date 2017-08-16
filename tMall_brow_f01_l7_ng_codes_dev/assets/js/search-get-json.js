@@ -216,7 +216,7 @@
 		var pgKey = pgp_docSerh[ "pgKey" ] ;
 		
 		var governStrBuf = new Array() ;
-		governStrBuf.push( pgp_envState.pgp_envOpt.pgp_servBaseUrl + pgp_docSerh[ "scm" ] + "?" ) ;
+		governStrBuf.push( pgp_envState.pgp_envOpt.any_servBaseUrl + pgp_docSerh[ "scm" ] + "?" ) ;
 		hfA01 : for ( var sechKey in pgp_docSerh )
 		{
 			if ( !pgp_docSerh.hasOwnProperty( sechKey ) && sechKey == "scm" ) continue hfA01 ;
