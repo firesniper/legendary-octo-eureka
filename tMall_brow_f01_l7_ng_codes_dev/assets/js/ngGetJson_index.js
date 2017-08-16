@@ -25,7 +25,7 @@ mdu_root.controller
         (
             function ( json_data )
             {
-                if ( Object.bol_isNullJson ( json_data ) ) 
+                if ( Object.bol_isNullJson ( /*json_data*/ ) ) 
                 {
                     var str_emerUrl = pgp_docSerh.fnStr_getEmerUrl ()
                 } ;
