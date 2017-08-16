@@ -25,6 +25,7 @@ mdu_root.controller
             var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl () ;
             var str_servWholeUri    = params.pgp_docSerh.fnStr_getWholeUri () ;
             var reqInc              = params.reqInc  ? params.reqInc : 0 ;
+            var fn_cb               = params.fn_cb ;
 
             var str_normalUri = str_servWholeUri + '&jsonp=JSON_CALLBACK' ;
             var str_servUri = bol_isEmer ? str_emerUrl : str_normalUri ;
@@ -42,9 +43,10 @@ mdu_root.controller
                         console.log ( "str_emerUrl:" , str_emerUrl ) ;
                         params.bol_isEmer = true ;
                         params.reqInc ++ ;
-                        // arguments.callee ( params ) ;
+                        getAjax ( params ) ;
                     } ;
                     console.log ( "json_data:" , json_data ) ;
+                    fn_cb ( json_data ) ;
                 }
             )
             .error
@@ -57,7 +59,6 @@ mdu_root.controller
 
                     params.bol_isEmer = true ;
                     params.reqInc ++ ;
-                    console.log () ;
                     getAjax ( params ) ;
 
                 }
