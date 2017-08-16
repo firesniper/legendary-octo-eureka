@@ -223,17 +223,13 @@
 					console.log( "json_data" , json_data ) ;
 					if ( Object.bol_isNullJson ( json_data ) ) 
                     {
+						$.toast( "暂无数据" ) ;
                         console.log ( "str_emerUrl:" , str_emerUrl ) ;
                         params.bol_isEmer = true ;
                         params.reqInc ++ ;
                         getAjax ( params ) ;
                     } ;
-					if ( !Object.keys( json_data )[ 0 ] ) 
-					{ 
-						$.toast( "暂无数据" ) ;
-			// 			throw new TypeError( "json_data null" ) ;
-			// 			return ;
-					} ;
+					
 					
 					var jary_conData = json_data.fnJary_concatJa () ;
 					jary_conData.fn_JaSortByType
