@@ -178,8 +178,7 @@
 	function getAjax (  params )
 	{
 		var pgp_docSerh			=   params.pgp_docSerh ;
-		/*var str_servCls			=   params.str_servCls || 
-									( "scm" in params.pgp_docSerh ? params.pgp_docSerh [ "scm" ] : "malldata" ) ;*/
+		 
 		var qad_anchor			=   params.qad_anchor ;
 		var fnStr_getDomPatt =   params.fnStr_getDomPatt ? 
 									params.fnStr_getDomPatt : 
@@ -195,21 +194,22 @@
 		var str_sortType		=   params.str_sortType ? params.str_sortType : "_bid" ;
 
 		
-		var str_pgKey = pgp_docSerh[ "pgKey" ] ;
+		var str_pgKey = pgp_docSerh [ "pgKey" ] ;
 		
-		/*var fnStr_getWholeUri = function ( params ) 
-		{
-			var str_appParams = pgp_docSerh.fnStr_getAppParams (  ) ;
-			var str_servWholeUri = pgp_envState.pgp_envOpt.any_servBaseUrl 
-										+ str_appParams ; 
-			return str_servWholeUri ;
-		} ;*/
+		params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
+		if ( params.reqInc > 5 ) return ;
+		var bol_isEmer          = params.bol_isEmer ? params.bol_isEmer : true ;
+		var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl () ;
+		var reqInc              = params.reqInc  ? params.reqInc : 0 ;
+
 		var str_servWholeUri = pgp_docSerh.fnStr_getWholeUri () ;
+		var str_servUri = bol_isEmer ? str_emerUrl : str_servWholeUri ;
+
 		$.ajax
 		(
 			{
 				// url : "http://localhost:8081/mall_a01/overcoat?" ,
-				url				: str_servWholeUri ,
+				url				: str_servUri ,
 				crossDomain 	: true ,
 				type			: "get" ,
 				dataType		: "jsonp" ,
@@ -221,6 +221,13 @@
 				{
 					// $.init() ;
 					console.log( "json_data" , json_data ) ;
+					if ( Object.bol_isNullJson ( json_data ) ) 
+                    {
+                        console.log ( "str_emerUrl:" , str_emerUrl ) ;
+                        params.bol_isEmer = true ;
+                        params.reqInc ++ ;
+                        getAjax ( params ) ;
+                    } ;
 					if ( !Object.keys( json_data )[ 0 ] ) 
 					{ 
 						$.toast( "暂无数据" ) ;
@@ -275,6 +282,9 @@
 					console.log( "XMLHttpRequest:" , XMLHttpRequest ) ;
 					console.log( "textStatus:" , textStatus ) ;
 					console.log( "errorThrown:" , errorThrown ) ;
+					params.bol_isEmer = true ;
+                    params.reqInc ++ ;
+                    getAjax ( params ) ;
 				} ,
 			}
 		) ;
