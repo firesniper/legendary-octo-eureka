@@ -7,7 +7,7 @@ $append_mls.config
             "dev" :
             {
                 
-                ary_indicate : [ "localhost" , "127.0.0" ] ,
+                // ary_indicate : [ "localhost" , "127.0.0" ] ,
                 any_servBaseUrl : "http://localhost:8080/mall_a01/" ,
                 // any_browBaseUrl : "http://localhost:3000/"
                 
