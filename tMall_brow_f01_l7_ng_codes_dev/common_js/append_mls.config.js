@@ -7,9 +7,9 @@ $append_mls.config
             "dev" :
             {
                 
-                ary_indicate : [ "localhost" , "127.0.0" ] ,
+                // ary_indicate : [ "localhost" , "127.0.0" ] ,
                 any_servBaseUrl : "http://localhost:8080/mall_a01/" ,
-                any_browBaseUrl : "http://localhost:3000/"
+                // any_browBaseUrl : "http://localhost:3000/"
                 
             } ,
             "pro" :
@@ -17,7 +17,7 @@ $append_mls.config
                 
                 ary_indicate : [ "www.firesnip.com" , "github" ] ,
                 any_servBaseUrl : "http://www.spitc-cn.com/mall_a01_ol/" ,
-                any_browBaseUrl : "http://www.firesnip.com/light7-mall_c01_ol/"
+                // any_browBaseUrl : "http://www.firesnip.com/light7-mall_c01_ol/"
                 
             } 
         } ,
