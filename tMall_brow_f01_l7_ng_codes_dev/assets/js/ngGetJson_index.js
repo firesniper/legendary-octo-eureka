@@ -9,15 +9,15 @@ var fn_getAjax = function ( params )
     if ( params.reqInc > 5 ) return ;
     var $http               = params.$http ;
     var $scope              = params.$scope ;
-    var bol_isEmer          = params.bol_isEmer ? params.bol_isEmer : false ;
-    var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl 
+    var bol_isEmer          = params && params.bol_isEmer ? params.bol_isEmer : false ;
+    var str_emerUrl         = params.pgp_docSerh.fnStr_getServEmerUrl 
     (
         {
             str_emerDir : "/emerData_ng/" 
         }
     ) ;
-    var str_servWholeUri    = params.pgp_docSerh.fnStr_getWholeUri () ;
-    var reqInc              = params.reqInc  ? params.reqInc : 0 ;
+    var str_servWholeUri    = params.pgp_docSerh.fnStr_getServWholeUri () ;
+    var reqInc              = params && params.reqInc  ? params.reqInc : 0 ;
     // var fn_cb               = params.fn_cb ;
 
     var str_normalUri = str_servWholeUri + '&jsonp=JSON_CALLBACK' ;
@@ -81,7 +81,7 @@ mdu_root.controller
         console.log ( "pvd_http:" , pvd_http ) ;
         var pgp_docSerh = { scm : "malldata" , tbNamesStr : "shoe,overcoat" } ;
 
-        /*var fnStr_getEmerUrl = function ( params )
+        /*var fnStr_getServEmerUrl = function ( params )
         {
             var str_emerDir    =   params && params.str_emerDir ? 
                                     params.str_emerDir : 

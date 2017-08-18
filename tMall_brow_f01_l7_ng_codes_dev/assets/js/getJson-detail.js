@@ -158,10 +158,10 @@
 	  // pgInfi();
 
 	var getAjaxLock = false ;  
-	function getAjax( jsonName , idx , flag )
+	function fn_getAjax( jsonName , idx , flag )
 	{
 // 		if ( getAjaxLock ) return ;
-		getAjax = true ;
+		fn_getAjax = true ;
 		if ( jsonName.constructor.name == "Array" )
 		{
 			var url = document.baseURI + "json/" + jsonName[ idx ] + ".json" ;
@@ -206,7 +206,7 @@
 			}
 		) ;
 	} ;
-	// getAjax( navMap , 0 , true ) ;
+	// fn_getAjax( navMap , 0 , true ) ;
 	// console.log( "window.data:" , window.data ) ;
 	$( document ).on(
 		"pageInit" ,
@@ -221,7 +221,7 @@
 				// console.log( "pageId:" , pageId ) ;
 				// var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 				// console.log( "pgp_docSerh:" , pgp_docSerh );
-				// getAjax( pgp_docSerh , Object.keys( pgp_docSerh )[ 0 ] , true ) ;
+				// fn_getAjax( pgp_docSerh , Object.keys( pgp_docSerh )[ 0 ] , true ) ;
 			} ;
 		} 
 	) ;
@@ -229,7 +229,7 @@
 
 	window.$detailGetJson = 
 	{
-		// getAjax : getAjax ,
+		// fn_getAjax : fn_getAjax ,
 	} ;
 
 	// $.init() ;

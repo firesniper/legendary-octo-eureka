@@ -236,7 +236,7 @@
 			var curIdx = this.fnNum_thisIdx( htmlcol ) ;
 			console.log( "curIdx:" , curIdx ) ;
 			var flag = curIdx == 0 || !curIdx ? true : false ;
-			getAjax( navMap , curIdx , flag ) ;
+			fn_getAjax( navMap , curIdx , flag ) ;
 
 		}
 	) ;
@@ -261,7 +261,7 @@
 		} ,
 		"jsonp"
 	) ;*/
-	function getAjax( jsonName , idx , flag )
+	function fn_getAjax( jsonName , idx , flag )
 	{
 		$.ajax(
 			{
@@ -292,7 +292,7 @@
 			}
 		) ;
 	} ;
-	// getAjax( navMap , 0 , true ) ;
+	// fn_getAjax( navMap , 0 , true ) ;
 	var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 	console.log( "pgp_docSerh:" , pgp_docSerh );
 

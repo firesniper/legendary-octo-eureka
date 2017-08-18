@@ -4,7 +4,7 @@
 	console.log( "index-get-json.js" ) ;
 	// $.init() ;
 	var pgp_docSerh = { scm : "malldata" , tbNamesStr : "shoe,overcoat" } ;
-
+	pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
 	var defGetDomStrPatt = function ( params )
 	{
 		var jary_data		= params.jary_data ;
@@ -36,7 +36,7 @@
 		var postage = ( postage = jpgp_data.postage ) == 0 ? "免运费" : postage ;
 		var domStrTemp = 
 			   '<a href= ' + document.baseURI + 'home/goods-detail.html' 
-			 + "?scm=" + pgp_docSerh[ "scm" ] + dbPaire + "&pgKey=" + str_pgKey + ' >'
+			 + window.pgp_envState.pgp_envOpt.str_docSerh + "&pgKey=" + str_pgKey + ' >'
 			 + '      <div class="card color-default">'
 			 + '         <div style="" valign="bottom" class="card-header color-white no-border no-padding">'
 			 + '           <img class="card-cover" src= ' + jpgp_data.link + ' alt="">'
@@ -73,7 +73,7 @@
 				console.log( "pgp_docSerh:" , pgp_docSerh );
 				
 				window.$getJsonSearch
-				.getAjax
+				.fn_getAjax
 				(
 					{
 						pgp_docSerh			: pgp_docSerh , 

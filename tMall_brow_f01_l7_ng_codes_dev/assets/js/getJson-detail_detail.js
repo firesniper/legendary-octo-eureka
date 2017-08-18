@@ -186,7 +186,7 @@
 				console.log( "pageId:" , pageId ) ;
 				var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 				console.log( "pgp_docSerh:" , pgp_docSerh );
-				window.$getJsonSearch.getAjax
+				window.$getJsonSearch.fn_getAjax
         ( 
           {
             pgp_docSerh              : pgp_docSerh , 

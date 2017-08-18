@@ -13,6 +13,7 @@
 		var json = jary_data[ str_dataKey ] ;
 		var curPageSearch = location.search ;
 		var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
+		pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
 		var prePageSearch = pgp_docSerh[ "prePageSearch" ] ;
 // 		$( document ).on(
 // 			"pageInit" ,
@@ -82,7 +83,7 @@
 				console.log( "pgp_docSerh:" , pgp_docSerh );
 				
 				window.$getJsonSearch
-				.getAjax
+				.fn_getAjax
 				(
 					{
 						pgp_docSerh			: pgp_docSerh , 
@@ -239,7 +240,7 @@
 
 						var dataValue = this.getAttribute( "data-value" ) ;
 						window.$getJsonSearch
-						.getAjax
+						.fn_getAjax
 						(
 							{
 								pgp_docSerh			: pgp_docSerh , 

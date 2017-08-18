@@ -111,7 +111,7 @@
 	{
     	console.log( "pgInfireduceData:" , params.jary_reduceData ) ;
 		var jary_reduceData		= params.jary_reduceData ;
-		var dom_dom				= params.dom_dom ? params.dom_dom : $( "#page-infinite-scroll" ) ;
+		var dom_dom				= params && params.dom_dom ? params.dom_dom : $( "#page-infinite-scroll" ) ;
 		var qad_anchor			= params.qad_anchor ;
 		var fnStr_getDomPatt 	= params.fnStr_getDomPatt ;
 		var str_pgKey			= params.str_pgKey ;
@@ -175,7 +175,7 @@
 		) ;
 
 	} ;*/
-	function getAjax (  params )
+	function fn_getAjax (  params )
 	{
 		var pgp_docSerh			=   params.pgp_docSerh ;
 		 
@@ -191,20 +191,68 @@
 									function () { return } : 
 									fn_defCb ; */
 		var $page				=   params.$page ;
-		var str_sortType		=   params.str_sortType ? params.str_sortType : "_bid" ;
+		var str_sortType		=   params && params.str_sortType ? params.str_sortType : "_bid" ;
 
 		
 		var str_pgKey = pgp_docSerh [ "pgKey" ] ;
 		
 		params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
 		if ( params.reqInc > 5 ) return ;
-		var bol_isEmer          = params.bol_isEmer ? params.bol_isEmer : false ;
-		var str_emerUrl         = params.pgp_docSerh.fnStr_getEmerUrl () ;
-		var reqInc              = params.reqInc  ? params.reqInc : 0 ;
+		var bol_isEmer          = params && params.bol_isEmer ? params.bol_isEmer : false ;
+		var str_emerUrl         = params.pgp_docSerh.fnStr_getServEmerUrl () ;
+		var reqInc              = params && params.reqInc  ? params.reqInc : 0 ;
 
-		var str_servWholeUri = pgp_docSerh.fnStr_getWholeUri () ;
+		var str_servWholeUri = pgp_docSerh.fnStr_getServWholeUri () ;
 		var str_servUri = bol_isEmer ? str_emerUrl : str_servWholeUri ;
+		var fn_ajaxSucc = function ( json_data )
+		{
+			// $.init() ;
+			console.log( "json_data" , json_data ) ;
+			
+			
+			
+			var jary_conData = json_data.fnJary_concatJa () ;
+			jary_conData.fn_JaSortByType
+			( 
+				Object.pgp_jaTypeSerhMap [ str_sortType ] 
+			) ;
+			var jary_data = !isNaN( str_pgKey ) && str_pgKey != undefined && str_pgKey != null && str_pgKey !== "" ? 
+							new Array ( jary_conData[ str_pgKey ] ) 
+							: 
+						jary_conData ;
 
+			jary_data.fnPgp_setIndex () ;
+			var ary_subRetData = jary_data.splice ( 0 , 6 ) ;
+
+			var str_domTemp = $tMallCompo.fnStr_getDomTemp
+			( 
+				{
+					// jary_data		: jary_data , 
+					fnStr_getDomPatt			: fnStr_getDomPatt , 
+					/*num_startIdx	: 0 , 
+					num_len			: 6 , */
+					str_pgKey		: str_pgKey ,
+					ary_subRetData	: ary_subRetData  
+
+				}
+			) ;
+
+			qad_anchor.append ( str_domTemp ) ;
+			// fn_cb( jary_data , qad_anchor , fnStr_getDomPatt , $page ) ;
+			$tMallCompo.fn_pgInfi 
+			( 
+				{
+					// pgp_reduceData		: pgp_data.pgp_reduceData , 
+					jary_reduceData		: jary_data ,
+					dom_dom				: $page , 
+					qad_anchor			: qad_anchor , 
+					fnStr_getDomPatt : fnStr_getDomPatt , 
+					str_pgKey			: str_pgKey 
+					
+				}
+			) ;
+			// $.init() ;
+		} ;
 		$.ajax
 		(
 			{
@@ -219,68 +267,42 @@
 				jsonpCallback 	: "mSearchjsonp" + ( pgp_docSerh [ "scm" ] + 1 ) ,
 				success 		: function ( json_data )
 				{
-					// $.init() ;
-					console.log( "json_data" , json_data ) ;
 					if ( Object.bol_isNullJson ( json_data ) ) 
-                    {
+					{
 						$.toast( "暂无数据" ) ;
-                        console.log ( "str_emerUrl:" , str_emerUrl ) ;
-                        params.bol_isEmer = true ;
-                        params.reqInc ++ ;
-                        getAjax ( params ) ;
-                    } ;
-					
-					
-					var jary_conData = json_data.fnJary_concatJa () ;
-					jary_conData.fn_JaSortByType
-					( 
-						Object.pgp_jaTypeSerhMap [ str_sortType ] 
-					) ;
-					var jary_data = !isNaN( str_pgKey ) && str_pgKey != undefined && str_pgKey != null && str_pgKey !== "" ? 
-								 new Array ( jary_conData[ str_pgKey ] ) 
-								 : 
-								jary_conData ;
-
-					jary_data.fnPgp_setIndex () ;
-					var ary_subRetData = jary_data.splice ( 0 , 6 ) ;
-
-					var str_domTemp = $tMallCompo.fnStr_getDomTemp
-					( 
-						{
-							// jary_data		: jary_data , 
-							fnStr_getDomPatt			: fnStr_getDomPatt , 
-							/*num_startIdx	: 0 , 
-							num_len			: 6 , */
-							str_pgKey		: str_pgKey ,
-							ary_subRetData	: ary_subRetData  
-
-						}
-					) ;
-
-					qad_anchor.append ( str_domTemp ) ;
-					// fn_cb( jary_data , qad_anchor , fnStr_getDomPatt , $page ) ;
-					$tMallCompo.fn_pgInfi 
-					( 
-						{
-							// pgp_reduceData		: pgp_data.pgp_reduceData , 
-							jary_reduceData		: jary_data ,
-							dom_dom				: $page , 
-							qad_anchor			: qad_anchor , 
-							fnStr_getDomPatt : fnStr_getDomPatt , 
-							str_pgKey			: str_pgKey 
-							
-						}
-					) ;
-					// $.init() ;
+						console.log ( "str_emerUrl:" , str_emerUrl ) ;
+						params.bol_isEmer = true ;
+						params.reqInc ++ ;
+						fn_getAjax ( params ) ;
+					} ;
+					fn_ajaxSucc ( json_data ) ;
 				} ,
 				error : function ( XMLHttpRequest, textStatus, errorThrown )
 				{
 					console.log( "XMLHttpRequest:" , XMLHttpRequest ) ;
 					console.log( "textStatus:" , textStatus ) ;
 					console.log( "errorThrown:" , errorThrown ) ;
+					$.ajax
+					(
+						{
+							// url : "http://localhost:8081/mall_a01/overcoat?" ,
+							url				: str_servUri ,
+							crossDomain 	: true ,
+							type			: "get" ,
+							dataType		: "jsonp" ,
+							mimeType		: "text/javascript" ,
+							scriptCharSet	: "utf-8" ,
+							jsonp 			: "jsonp" ,
+							jsonpCallback 	: "mSearchjsonp" + ( pgp_docSerh [ "scm" ] + 1 ) ,
+							success 		: function ( json_data )
+							{
+								fn_ajaxSucc ( json_data ) ;
+							} ,
+						}
+					) ;
 					params.bol_isEmer = true ;
                     params.reqInc ++ ;
-                    getAjax ( params ) ;
+                    fn_getAjax ( params ) ;
 				} ,
 			}
 		) ;
@@ -297,7 +319,7 @@
 // 				// console.log( "pageId:" , pageId ) ;
 // 				// var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 // 				// console.log( "pgp_docSerh:" , pgp_docSerh );
-// 				// getAjax( pgp_docSerh , Object.keys( pgp_docSerh )[ 0 ] , true ) ;
+// 				// fn_getAjax( pgp_docSerh , Object.keys( pgp_docSerh )[ 0 ] , true ) ;
 			
 // 			} ;
 // 		} 
@@ -306,7 +328,7 @@
 
 	var getJsonSearch = 
 	{
-		getAjax : getAjax ,
+		fn_getAjax : fn_getAjax ,
 	} ;
 
 	Object.defineProperties (

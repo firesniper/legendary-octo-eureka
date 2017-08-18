@@ -181,7 +181,7 @@
 		pgInfi( getDomStrRes.reduceData , $page , anchorDom , getDomStrPatt , pgKey );
 
 	} ;
-	function getAjax
+	function fn_getAjax
 	( pgp_docSerh , servCls , anchorDom , getDomStrPatt , callback , $page , sortType )
 	{
 		sortType = sortType ? sortType : "_bid" ;
@@ -303,8 +303,8 @@
 				console.log( "pageId:" , pageId ) ;
 				var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 				console.log( "pgp_docSerh:" , pgp_docSerh );
-				// getAjax( pgp_docSerh , pgp_docSerh[ Object.keys( pgp_docSerh )[ 0 ] ] , true ) ;
-				getAjax( 
+				// fn_getAjax( pgp_docSerh , pgp_docSerh[ Object.keys( pgp_docSerh )[ 0 ] ] , true ) ;
+				fn_getAjax( 
 					pgp_docSerh , 
 					pgp_docSerh[ Object.keys( pgp_docSerh )[ 0 ] ] , 
 					$( ".content" ) , 
@@ -319,7 +319,7 @@
 
 	/*window.$searchGetJson = 
 	{
-		getAjax : getAjax ,
+		fn_getAjax : fn_getAjax ,
 	} ;*/
 
 	// $.init() ;

@@ -183,7 +183,7 @@
 	var navMap = [ "recommend" , "women_wear" , "men_wear" , "shoe" , "package" , "under_wear" , "electrical" ] ;
 
 
-	function getAjax( jsonName , idx , flag )
+	function fn_getAjax( jsonName , idx , flag )
 	{
 		$.ajax(
 			{
@@ -235,12 +235,12 @@
 				var curIdx = this.fnNum_thisIdx( htmlcol ) ;
 				// console.log( "curIdx:" , curIdx ) ;
 				var flag = curIdx == 0 || !curIdx ? true : false ;
-				getAjax( navMap , curIdx , flag ) ;
+				fn_getAjax( navMap , curIdx , flag ) ;
 
 			}
 		) ;	
 	} ;
-	getAjax( navMap , 0 , true ) ;
+	fn_getAjax( navMap , 0 , true ) ;
 	tabEveLoad () ;
 // 	$( document ).on(
 // 		"pageInit" ,
@@ -282,7 +282,7 @@
 	// 		if ( pageId == "page-infinite-scroll" ) 
 	// 		{
 	// 			var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
-	// 			window.$getJsonSearch.getAjax( pgp_docSerh , Object.keys( pgp_docSerh )[ 0 ] , $( ".list-container.page-container" ) ) ;
+	// 			window.$getJsonSearch.fn_getAjax( pgp_docSerh , Object.keys( pgp_docSerh )[ 0 ] , $( ".list-container.page-container" ) ) ;
 	// 		} ;
 	// 	} 
 
