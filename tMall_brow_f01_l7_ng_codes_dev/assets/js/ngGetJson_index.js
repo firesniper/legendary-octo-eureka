@@ -36,7 +36,9 @@ var fn_getAjax = function ( params )
             var json_data   = params.json_data ;
             var $scope      = params.$scope ;
             console.log ( "json_data:" , json_data ) ;
-            $scope.json_data = json_data ;
+            var jary_conData = json_data.fnJary_concatJa () ;
+
+            $scope.json_data = jary_conData ;
             /*var postage = ( postage = jpgp_data.postage ) == 0 ? "免运费" : postage ;
             $scope.postage = postage ;*/
             console.log ( "$scope:" , $scope ) ;
