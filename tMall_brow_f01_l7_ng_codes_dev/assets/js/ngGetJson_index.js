@@ -20,8 +20,36 @@ var fn_getAjax = function ( params )
     var reqInc              = params && params.reqInc  ? params.reqInc : 0 ;
     // var fn_cb               = params.fn_cb ;
 
-    var str_normalUri = str_servWholeUri + '&jsonp=JSON_CALLBACK' ;
-    var str_servUri = bol_isEmer ? str_emerUrl : str_normalUri ;
+    var str_servWholeUri_ngJsonp = str_servWholeUri 
+                                    + ( str_servWholeUri.indexOf ( "?" ) > 0 ? 
+                                    '&jsonp=JSON_CALLBACK' : 
+                                    '?jsonp=JSON_CALLBACK' ) ;
+    var str_emerUrl_ngJsonp = str_emerUrl 
+                                    + ( str_emerUrl.indexOf ( "?" ) > 0 ? 
+                                    '&jsonp=JSON_CALLBACK' : 
+                                    '?angular.callbacks._' + reqInc + '#' ) ;
+    var str_servUri = bol_isEmer ? str_emerUrl_ngJsonp : str_servWholeUri_ngJsonp ;
+    var fn_ajaxSucc = function ( json_data )
+    {
+            // var json_data = params.json_data ;
+            console.log ( "json_data:" , json_data ) ;
+            $scope.json_data = json_data ;
+            // fn_cb ( json_data ) ;
+    } ;
+    var fn_newAjax = function ( params )
+    {
+        if ( params.bol_isEmer ) 
+        {
+            $http.jsonp ( str_emerUrl )
+            .success
+            (
+                function ( json_data , status , header , config ) 
+                {
+                    fn_ajaxSucc ( json_data ) ;
+                } 
+            ) ;
+        } ;
+    } ;
     $http.jsonp
     ( 
         // str_servWholeUri + '&jsonp=JSON_CALLBACK' 
@@ -30,8 +58,8 @@ var fn_getAjax = function ( params )
     .success
     (
         function ( json_data )
-
         {
+            // params.bol_isEmer = true ;
             if ( Object.bol_isNullJson ( json_data ) ) 
             {
                 console.log ( "str_emerUrl:" , str_emerUrl ) ;
@@ -39,9 +67,7 @@ var fn_getAjax = function ( params )
                 params.reqInc ++ ;
                 fn_getAjax ( params ) ;
             } ;
-            console.log ( "json_data:" , json_data ) ;
-            $scope.json_data = json_data ;
-            // fn_cb ( json_data ) ;
+            fn_ajaxSucc ( json_data ) ;
         }
     )
     .error
@@ -51,13 +77,33 @@ var fn_getAjax = function ( params )
             // if ( params.reqInc > 5 ) return ;
 
             console.log ( "err params:" , params ) ;
-
+            /*$http.jsonp
+            ( 
+                str_emerUrl_ngJsonp 
+                // str_servUri
+            )
+            .success
+            (
+                function ( json_data )
+                {
+                    fn_ajaxSucc ( json_data ) ;
+                }
+            )*/
+            /*.error
+            (
+                function ( err )
+                {
+                    console.log ( "err:" , err ) ;
+                }
+            ) ;*/
             params.bol_isEmer = true ;
             params.reqInc ++ ;
             fn_getAjax ( params ) ;
+            // fn_newAjax ( { bol_isEmer : true } ) ;
 
         }
     ) ;
+    
 
 } ;
 mdu_root.provider
