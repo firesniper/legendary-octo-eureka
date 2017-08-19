@@ -22,18 +22,24 @@ var fn_getAjax = function ( params )
 
     var str_servWholeUri_ngJsonp = str_servWholeUri 
                                     + ( str_servWholeUri.indexOf ( "?" ) > 0 ? 
-                                    '&jsonp=JSON_CALLBACK' : 
-                                    '?jsonp=JSON_CALLBACK' ) ;
+                                    '&' : 
+                                    '?' ) 
+                                    + "jsonp=JSON_CALLBACK" ;
     var str_emerUrl_ngJsonp = str_emerUrl 
                                     + ( str_emerUrl.indexOf ( "?" ) > 0 ? 
-                                    '&jsonp=JSON_CALLBACK' : 
-                                    '?angular.callbacks._' + reqInc + '#' ) ;
+                                    '&' : 
+                                    '?' )
+                                    + 'angular.callbacks._' + reqInc + '#' ;
     var str_servUri = bol_isEmer ? str_emerUrl_ngJsonp : str_servWholeUri_ngJsonp ;
-    var fn_ajaxSucc = function ( json_data )
+    var fn_ajaxSucc = function ( params )
     {
-            // var json_data = params.json_data ;
+            var json_data   = params.json_data ;
+            var $scope      = params.$scope ;
             console.log ( "json_data:" , json_data ) ;
             $scope.json_data = json_data ;
+            /*var postage = ( postage = jpgp_data.postage ) == 0 ? "免运费" : postage ;
+            $scope.postage = postage ;*/
+            console.log ( "$scope:" , $scope ) ;
             // fn_cb ( json_data ) ;
     } ;
     var fn_newAjax = function ( params )
@@ -67,7 +73,13 @@ var fn_getAjax = function ( params )
                 params.reqInc ++ ;
                 fn_getAjax ( params ) ;
             } ;
-            fn_ajaxSucc ( json_data ) ;
+            fn_ajaxSucc 
+            ( 
+                { 
+                    json_data : json_data ,
+                    $scope    : params.$scope 
+                }
+            ) ;
         }
     )
     .error
@@ -126,7 +138,9 @@ mdu_root.controller
     {
         console.log ( "pvd_http:" , pvd_http ) ;
         var pgp_docSerh = { scm : "malldata" , tbNamesStr : "shoe,overcoat" } ;
-
+    	pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
+        
+        $scope.str_docSerh = window.pgp_envState.pgp_envOpt.str_docSerh ;
         /*var fnStr_getServEmerUrl = function ( params )
         {
             var str_emerDir    =   params && params.str_emerDir ? 
