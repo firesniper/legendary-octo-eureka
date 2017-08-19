@@ -6,7 +6,7 @@ console.log ( "mdu_root:" , mdu_root ) ;
 var fn_getAjax = function ( params )
 {
     params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
-    if ( params.reqInc > 5 ) return ;
+    if ( params.reqInc > 3 ) return ;
     var $http               = params.$http ;
     var $scope              = params.$scope ;
     var bol_isEmer          = params && params.bol_isEmer ? params.bol_isEmer : false ;
