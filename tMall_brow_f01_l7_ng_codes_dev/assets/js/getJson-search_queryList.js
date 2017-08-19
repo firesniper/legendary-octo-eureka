@@ -8,9 +8,10 @@
 // 		str_dataKey = str_dataKey ? str_dataKey : pgKey ;
 		var jary_data		= params.jary_data ;
 		var str_dataKey		= params.str_dataKey ;
-		var str_pgKey		= params.str_pgKey ;
+		// var str_pgKey		= params.str_pgKey ;
 
-		var json = jary_data[ str_dataKey ] ;
+		var jpgp = jary_data [ str_dataKey ] ;
+		var num_idx = jpgp [ "index" ] ;
 		var curPageSearch = location.search ;
 		var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 		pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
@@ -32,33 +33,33 @@
 					  "&dicStr=" + pgp_docSerh[ "dicStr" ]	:
 					  undefined ;
 
-		var postage = ( postage = json.postage ) == 0 ? "免运费" : postage ;
+		var postage = ( postage = jpgp.postage ) == 0 ? "免运费" : postage ;
 		var domStrTemp = 
 				   '<li>'
                   +'    <div class="item-content list-item">'
                   +'        <div class="p">'
-                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + str_pgKey + ' " title="">'
-                  +'                <img class="p-pic" src=" ' + json.link + ' " style="visibility: visible;">'
+                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + num_idx/*str_pgKey*/ + ' " title="">'
+                  +'                <img class="p-pic" src=" ' + jpgp.link + ' " style="visibility: visible;">'
                   +'                <span class="flag c-icon-pt"></span>'
                   +'              </a>'
                   +'        </div>'
                   +'        <div class="d">'
-                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + str_pgKey + ' " title="">'
-                  +'                <h3 class="d-title">  ' + json.title + ' </h3>'
+                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + num_idx/*str_pgKey*/ + ' " title="">'
+                  +'                <h3 class="d-title">  ' + jpgp.title + ' </h3>'
                   +'            </a>'
                   +'            <p class="d-price">'
                   +'                <em class="h">'
                   +'                    <span class="price-icon">¥</span>'
-                  +'                    <span class="font-num"> ' + json.price_integer + ' </span>'
+                  +'                    <span class="font-num"> ' + jpgp.price_integer + ' </span>'
                   +'                </em>'
                   +'                <del></del>'
                   +'            </p>'
                   +'            <div class="d-main">'
                   +'                <p class="d-freight"> ' + postage + ' </p>'
                   +'                <p class="d-num">'
-                  +'				   <span class="font-num"> ' + json.sales + ' </span>人付款'
+                  +'				   <span class="font-num"> ' + jpgp.sales + ' </span>人付款'
                   +'				</p>'
-                  +'                <p class="d-area"> ' + json.delivery + ' </p>'
+                  +'                <p class="d-area"> ' + jpgp.delivery + ' </p>'
                   +'            </div>'
                   +'        </div>'
                   +'    </div>'

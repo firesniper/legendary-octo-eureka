@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base href= "http://www.firesnip.com/light7-mall_c01_ol/"/>
-  <script type= "text/javascript" src= "common_js/append_mls_2-1-20170814.js"></script>
-  <script type= "text/javascript" src= "common_js/init_appmls_search.js"></script>
+          <base href= "http://localhost:3000/public/tMall_brow_f01_l7_ng_codes_dev/"/>
+<script type= "text/javascript" src= "common_js/append_mls_2-1-20170814.js"></script>
+<script type= "text/javascript" src= "common_js/append_mls.config.js" ></script> 
+<script type= "text/javascript" src="common_js/tMall_lib.js" ></script> 
+<script type= "text/javascript" src="common_js/angular-1.0.1.min.js" ></script> 
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv= "pragma" content= "no-cache" />
+<meta http-equiv= "cache-control" content= "no-cache" />
+<meta http-equiv= "expire" content= "-1" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1433748561_0232708.css">
+
+<link rel="stylesheet" href="dist/css/light7-2.css"> 
+<link rel="stylesheet" href="dist/css/light7-swiper.css"> 
+<link rel="stylesheet" href="dist/css/light7-swipeout.css"> 
+<link rel="stylesheet" href="css/app.css">
+ 
+
+   <!--<script type= "text/javascript" src= "common_js/init_appmls_queryList.js"></script>-->
     <!-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <title>Light7 Demo</title>
@@ -13,7 +36,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
-    <!-- <meta http-equiv="refresh" content="1;URL=./query.html" /> -->
+    <!-- <meta http-equiv="refresh" content="1;URL=./queryList.html" /> -->
 
     <!-- Google Web Fonts -->
 
@@ -21,6 +44,8 @@
     <link rel="stylesheet" href="/dist/css/light7-swiper.css">
     <link rel="stylesheet" href="/dist/css/light7-swipeout.css">
     <link rel="stylesheet" href="/assets/css/demos.css"> -->
+  <!--<link rel="stylesheet" href="css/app.css">-->
+  <link rel="stylesheet" href= "assets/css/tb_search_list.css" />
 
     <!-- <link rel="apple-touch-icon-precomposed" href="/assets/img/apple-touch-icon-114x114.png"> -->
     <!-- <script src="/assets/js/jquery-2.1.4.js"></script> -->
@@ -31,35 +56,8 @@
   <body>
     <div id="page-infinite-scroll" class="page">
         <header class="bar bar-nav">
-          <!-- <a class="button button-link button-nav pull-left back" href="examples/light7-mall_c01/home/category.html">
-            <span class="icon icon-left"></span>
-            Back
-          </a>
-          <h1 class="title">Search Bar</h1> -->
-            <div class="searchbar">
-                <a class="searchbar-cancel">Cancel</a>
-                <div class="search-input">
-                    <label class="icon icon-search" for="search"></label>
-                    <!-- <input type="search" id='search' placeholder='Input Query...'/>
-                    <div class="c-form-btn">
-                        <input type="submit" name="search" class="icons-search">
-                    </div> -->
-                    <form class="c-form-suggest" id="J_Search" method="get" action="/h5">
-                        <div class="s-form-search search-form">
-                            <input type="search" name="q" class="J_autocomplete" autocomplete="off" value="">
-                            <button style="display: none;">
-                                <span></span>
-                            </button>
-                        </div>
-                        <div class="c-form-btn">
-                            <input type="submit" name="search" class="icons-search">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </header>
-        <div class="bar bar-header-secondary" >
-            <!-- <div class="toolbar" style= "display:none">
+            
+           <div class="toolbar">
                 <header class="top-bar on" id="J_Header">
                     <div class="top-bar-w">
                         <div class="top-bar-c">
@@ -78,15 +76,16 @@
                                             <li class="mall">
                                                 <span class="icon icons-tmall"></span>
                                                 天猫
-                                                </li>
+                                            </li>
                                           </ul>
                                     </div>
                                 </div>
                                 <div class="s-input-frame">
-                                    <form class="c-form-suggest" id="J_Search" method="get" action="/h5">
+                                    <form class="c-form-suggest" id="J_Search" method="get" action="home/queryList.html?scm=MallData">
                                         <div class="s-form-search search-form">
-                                            <input type="search" name="q" class="J_autocomplete" autocomplete="off" value="">
-                                            <button style="display: none;">
+                                            <input type="search" name="scm" class="J_autocomplete" autocomplete="off" value="overcoat" style= "display:none;">
+                                            <input type="search" name="dicStr" class="J_autocomplete" autocomplete="off" value="女">
+                                            <button style="display: none ;">
                                                 <span></span>
                                             </button>
                                         </div>
@@ -97,33 +96,33 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="logo" href="//m.taobao.com" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                        <a class="logo" href="home/" external>
                             <div class="icons-home"></div>
                         </a>
-                        <div class="top-bar-btn closed" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1); display: none;">取消
+                        <div class="top-bar-btn closed" >取消
                         </div>
                       </div>
                     </header>
-                    <div class="suggest-container" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                    <div class="suggest-container" style= "display : none" >
                         <h3>大家都在搜</h3>
                         <ul class="suggest-hotkey" data-sugg-type="2">
-                           <li>lol账号</li>
-                           <li>棒球服</li>
-                           <li>女神的新衣</li>
-                           <li>单肩包女</li>
-                           <li>摩托车</li>
+                           <li>女装</li>
+                           <li>男装</li>
+                           <li>电子</li>
+                           <li>鞋</li>
+                           <li>工具</li>
                            <li>iphone6</li>
-                           <li>书包</li>
-                           <li>屎</li>
-                           <li>宝马山地自行车</li>
-                           <li>棉衣男</li>
+                           <li>包</li>
+                           <li>下装</li>
+                           <li>高跟鞋</li>
+                           <li>上装</li>
                         </ul>
                     </div>
-                    <div class="rellkey-container" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                    <div class="rellkey-container" >
                     </div>
-                    <div class="onesearch-container" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                    <div class="onesearch-container" >
                     </div>
-                    <div class="filterbar-container" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                    <div class="filterbar-container" >
                         <div class="filter-bar J_sortTab">
                             <div class="viewtype-switch J_SwitchViewtype">
                             <div class="icons-list"></div>
@@ -135,7 +134,7 @@
                                         <span class="bar"></span>
                                     </li>
                                     <li class="sort" data-value="_sale">
-                                      销量优先
+                                        销量优先
                                         <span class="bar"></span>
                                     </li>
                                     <li>
@@ -147,7 +146,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="droplist droplist-expand">
+                                <div class="droplist">
                                     <ul class="sorts">
                                         <li class="sort selected" data-value="">
                                             综合排序
@@ -168,46 +167,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tip-container" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                        <div class="tip-container" >
                         </div>
-                    </div> --><!-- toolbar end -->
-        </div> <!-- bar end -->
+                    </div><!-- toolbar end -->
+        </header>
+        <!-- <div class="bar bar-header-secondary" style= "display:block;">
+             
+         </div> --> <!-- bar end -->
         
                     
         <div class="content infinite-scroll" id='' data-distance="100">
-            <!-- <div class="content-padded">
-                 <div class="searchbar">
-                   <div class="search-input">
-                     <label class="icon icon-search" for="search"></label>
-                     <input type="search" id='search' placeholder='Input Query...'/>
-                   </div>
-                 </div>
-             
-                 <div class="searchbar row">
-                   <div class="search-input col-80">
-                     <label class="icon icon-search" for="search"></label>
-                     <input type="search" id='search' placeholder='Input Query...'/>
-                   </div>
-                   <a class="button button-fill button-primary col-20">Search</a>
-                 </div>
-             
-                 <div class="searchbar row">
-                   <div class="search-input col-85">
-                     <input type="search" id='search' placeholder='Input Query...'/>
-                   </div>
-                   <a class="button button-fill button-primary col-15"><span class="icon icon-search"></span></a>
-                 </div>
-             </div> --> <!-- content-padded end -->
-             
-                
-              
+           
              
 
                 <div class="list-block search-list list-view">
                   <ul class="list-container page-container">
-                  
 
-
+                   
                 </ul>
               </div><!-- list-block end -->
               <!-- 加载提示符 -->
@@ -223,7 +199,18 @@
     <script src="/dist/js/light7-city-picker.js"></script>
     <script src="/dist/js/light7-swipeout.js"></script>
     <script src="/assets/js/demos.js?r=201603281"></script> -->
-    <script type= "text/javascript" >
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script src="dist/js/light7.js"></script> 
+<script src="dist/js/light7-swiper.js"></script>
+<script src="dist/js/light7-swipeout.js"></script> 
+ 
+    <script src= "assets/js/getJson-search.js"></script>
+    <script src= "assets/js/getJson-search_queryList.js"></script>
+    <script src= "assets/js/getJson-detail_detail.js"></script>
+
+    <script src= "js/init.js" ></script>
+
+    <script type= "text/javascript"       >
 //       window.onload = function ()
 //       {
 //             console.log( "onload" ) ;

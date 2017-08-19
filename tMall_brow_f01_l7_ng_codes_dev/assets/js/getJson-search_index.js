@@ -9,11 +9,12 @@
 	{
 		var jary_data		= params.jary_data ;
 		var str_dataKey		= params.str_dataKey ;
-		var str_pgKey		= params.str_pgKey ;
+		// var str_pgKey		= params.str_pgKey ;
 
 // 		console.log( "jary_data:" , jary_data ) ;
 // 		str_dataKey = str_dataKey ? str_dataKey : pgKey ;
 		var jpgp_data = jary_data[ str_dataKey ] ;
+		var num_idx = jpgp_data [ "index" ] ;
 		// var curPageSearch = location.search ;
 		// var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 // 		$( document ).on(
@@ -36,7 +37,7 @@
 		var postage = ( postage = jpgp_data.postage ) == 0 ? "免运费" : postage ;
 		var domStrTemp = 
 			   '<a href= ' + document.baseURI + 'home/goods-detail.html' 
-			 + window.pgp_envState.pgp_envOpt.str_docSerh + "&pgKey=" + str_pgKey + ' >'
+			 + window.pgp_envState.pgp_envOpt.str_docSerh + "&pgKey=" + num_idx /*str_pgKey*/ + ' >'
 			 + '      <div class="card color-default">'
 			 + '         <div style="" valign="bottom" class="card-header color-white no-border no-padding">'
 			 + '           <img class="card-cover" src= ' + jpgp_data.link + ' alt="">'

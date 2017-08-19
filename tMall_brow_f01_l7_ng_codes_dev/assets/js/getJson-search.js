@@ -60,121 +60,8 @@
       	return str_domTemp ;
 
 	} ;
-/*	var num_reduceCount = 0 ;
-	var pgp_idxData = null ;*/
-	var fnStr_getDomTemp = function ( params ) 
-	{
-		// var jary_data 		= params.jary_data ;
-		var fnStr_getDomPatt			= params.fnStr_getDomPatt ;
-		/*var num_startIdx	= params.num_startIdx ;
-		var num_len			= params.num_len ;*/
-		var str_pgKey		= params.str_pgKey ;
-		var ary_subRetData	= params.ary_subRetData ;
-		/*if ( !jary_data ) 
-		{ 
-			$.toast( "暂无数据" ) ;
-// 			throw new TypeError( "jary_data null" ) ;
-// 			return ;
-		} ;*/
-		/*jary_data.fnPgp_setIndex () ;
-		var ary_subRetData = jary_data.splice ( num_startIdx , num_len ) ;
-		console.log( "ary_subRetData:" , ary_subRetData.length ) ;*/
-// 		num_reduceCount = num_reduceCount == 0 ? num_len : num_reduceCount ;
-		// num_reduceCount += ary_subRetData.length ;
-		
-		var arys_buffer_str = [] ;
-		
-		hfA01 : for ( var str_subRetDataKey in ary_subRetData )
-		{
-			if ( !ary_subRetData.hasOwnProperty ( str_subRetDataKey ) ) continue hfA01 ;
-// 			var num_searchKey = num_reduceCount - Math.abs( ary_subRetData.num_len - str_subRetDataKey ) ;
-			var num_searchKey = ary_subRetData[ str_subRetDataKey ][ "index" ] - 1 ;
-			var str_domTemp = fnStr_getDomPatt 
-			( 
-				{
-					jary_data	: ary_subRetData , 
-					str_dataKey	: str_subRetDataKey , 
-					str_pgKey	: num_searchKey 
-				}
-			) ;
-			arys_buffer_str.push ( str_domTemp ) ;
-		} ;
-		// console.log( "arys_buffer_str:" , arys_buffer_str ) ;
-		/*return {
-			//  "jary_reduceData" : jary_data , 
-			 "arys_buffer_str" : arys_buffer_str 
-		} ;*/
-		return arys_buffer_str.join ( "" ) ;
-	} ;
+
 	
-	var fn_pgInfi = function ( params )
-	{
-    	console.log( "pgInfireduceData:" , params.jary_reduceData ) ;
-		var jary_reduceData		= params.jary_reduceData ;
-		var dom_dom				= params && params.dom_dom ? params.dom_dom : $( "#page-infinite-scroll" ) ;
-		var qad_anchor			= params.qad_anchor ;
-		var fnStr_getDomPatt 	= params.fnStr_getDomPatt ;
-		var str_pgKey			= params.str_pgKey ;
-
-    	var loading = false ;
-
-        dom_dom.on 
-		( 
-            'infinite' , 
-            function ( e ) 
-            {
-//             	console.log( "e:" , e ) ;
-                if (loading) return ;
-
-                loading = true ;
-                setTimeout
-				( 
-                    function () 
-                    {
-                        loading = false ;
-
-						// jary_reduceData.fnPgp_setIndex () ;
-						var ary_subRetData = jary_reduceData.splice ( 0 , 4 ) ;
-						console.log( "ary_subRetData:" , ary_subRetData.length ) ;
-                        var str_domTemp = $tMallCompo.fnStr_getDomTemp
-						(
-							{
-								// jary_data		: jary_reduceData , 
-								fnStr_getDomPatt			: fnStr_getDomPatt , 
-								/*num_startIdx	: 0 , 
-								num_len			: 4 , */
-								str_pgKey		: str_pgKey ,
-								ary_subRetData	: ary_subRetData
-
-							} 
-						) ;
-                      	qad_anchor.append ( str_domTemp ) ;	
-                    } , 
-                    1000 
-                ) ;
-            }
-        ) ;
-      
-	} ;
-	/*function fn_defCb 
-	( 
-		jary_data , qad_anchor , fnStr_getDomPatt , $page , str_pgKey 
-	)
-	{
-
-		$tMallCompo.fn_pgInfi 
-		( 
-			{
-				jary_reduceData		: jary_data.jary_reduceData , 
-				dom_dom				: $page , 
-				qad_anchor			: qad_anchor , 
-				fnStr_getDomPatt : fnStr_getDomPatt , 
-				str_pgKey			: str_pgKey 
-				
-			}
-		) ;
-
-	} ;*/
 	function fn_getAjax (  params )
 	{
 		var pgp_docSerh			=   params.pgp_docSerh ;
@@ -231,7 +118,7 @@
 					fnStr_getDomPatt			: fnStr_getDomPatt , 
 					/*num_startIdx	: 0 , 
 					num_len			: 6 , */
-					str_pgKey		: str_pgKey ,
+					// str_pgKey		: str_pgKey ,
 					ary_subRetData	: ary_subRetData  
 
 				}
@@ -247,7 +134,7 @@
 					dom_dom				: $page , 
 					qad_anchor			: qad_anchor , 
 					fnStr_getDomPatt : fnStr_getDomPatt , 
-					str_pgKey			: str_pgKey 
+					// str_pgKey			: str_pgKey 
 					
 				}
 			) ;
