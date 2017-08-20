@@ -84,7 +84,7 @@
 		var str_pgKey = pgp_docSerh [ "pgKey" ] ;
 		
 		params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
-		if ( params.reqInc > 0 ) return ;
+		if ( params.reqInc > 4 ) return ;
 		var bol_isEmer          = params && params.bol_isEmer ? params.bol_isEmer : false ;
 		var str_emerUrl         = params.pgp_docSerh.fnStr_getServEmerUrl () ;
 		var reqInc              = params && params.reqInc  ? params.reqInc : 0 ;
@@ -144,7 +144,7 @@
 		(
 			{
 				// url : "http://localhost:8081/mall_a01/overcoat?" ,
-				url				: str_emerUrl ,
+				url				: str_servUri ,
 				crossDomain 	: true ,
 				type			: "get" ,
 				dataType		: "jsonp" ,
@@ -173,7 +173,7 @@
 					(
 						{
 							// url : "http://localhost:8081/mall_a01/overcoat?" ,
-							url				: str_servUri ,
+							url				: str_emerUrl ,
 							crossDomain 	: true ,
 							type			: "get" ,
 							dataType		: "jsonp" ,
