@@ -37,7 +37,7 @@
 		var postage = ( postage = jpgp_data.postage ) == 0 ? "免运费" : postage ;
 		var domStrTemp = 
 			   '<a href= ' + document.baseURI + 'home/goods-detail.html' 
-			 + window.pgp_envState.pgp_envOpt.str_docSerh + "&pgKey=" + num_idx /*str_pgKey*/ + ' >'
+			 + window.pgp_envState.pgp_envOpt.str_docSerh + "&pgKey=" + jpgp_data [ "index" ]   + ' >'
 			 + '      <div class="card color-default">'
 			 + '         <div style="" valign="bottom" class="card-header color-white no-border no-padding">'
 			 + '           <img class="card-cover" src= ' + jpgp_data.link + ' alt="">'
@@ -79,7 +79,7 @@
 					{
 						pgp_docSerh			: pgp_docSerh , 
 						// str_servCls			: pgp_docSerh [ Object.keys( pgp_docSerh )[ 0 ] ] , 
-						qad_anchor			: $( "#page-home .list" ) , 
+						qad_anchor			: $( "#page-home .list.list-anch" ) , 
 						fnStr_getDomPatt : defGetDomStrPatt ,
 						fn_cb				: undefined ,
 						$page				: $page ,

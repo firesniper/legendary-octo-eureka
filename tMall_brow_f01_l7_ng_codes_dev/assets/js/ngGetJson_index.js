@@ -6,7 +6,7 @@ console.log ( "mdu_root:" , mdu_root ) ;
 var fn_getAjax = function ( params )
 {
     params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
-    if ( params.reqInc > 3 ) return ;
+    if ( params.reqInc > 0 ) return ;
     var $http               = params.$http ;
     var $scope              = params.$scope ;
     var bol_isEmer          = params && params.bol_isEmer ? params.bol_isEmer : false ;
@@ -29,7 +29,8 @@ var fn_getAjax = function ( params )
                                     + ( str_emerUrl.indexOf ( "?" ) > 0 ? 
                                     '&' : 
                                     '?' )
-                                    + 'angular.callbacks._' + reqInc + '#' ;
+                                    // + 'angular.callbacks._' + reqInc + '#' ;
+                                    + "jsonp=JSON_CALLBACK" ;
     var str_servUri = bol_isEmer ? str_emerUrl_ngJsonp : str_servWholeUri_ngJsonp ;
     var fn_ajaxSucc = function ( params )
     {
@@ -44,7 +45,7 @@ var fn_getAjax = function ( params )
             console.log ( "$scope:" , $scope ) ;
             // fn_cb ( json_data ) ;
     } ;
-    var fn_newAjax = function ( params )
+    /*var fn_newAjax = function ( params )
     {
         if ( params.bol_isEmer ) 
         {
@@ -57,7 +58,7 @@ var fn_getAjax = function ( params )
                 } 
             ) ;
         } ;
-    } ;
+    } ;*/
     $http.jsonp
     ( 
         // str_servWholeUri + '&jsonp=JSON_CALLBACK' 
@@ -91,7 +92,7 @@ var fn_getAjax = function ( params )
             // if ( params.reqInc > 5 ) return ;
 
             console.log ( "err params:" , params ) ;
-            /*$http.jsonp
+            $http.jsonp
             ( 
                 str_emerUrl_ngJsonp 
                 // str_servUri
@@ -100,9 +101,15 @@ var fn_getAjax = function ( params )
             (
                 function ( json_data )
                 {
-                    fn_ajaxSucc ( json_data ) ;
+                    fn_ajaxSucc 
+                    ( 
+                        { 
+                            json_data : json_data ,
+                            $scope    : params.$scope 
+                        }
+                    ) ;
                 }
-            )*/
+            )
             /*.error
             (
                 function ( err )
@@ -120,6 +127,31 @@ var fn_getAjax = function ( params )
     
 
 } ;
+mdu_root.filter
+(
+    "fnStr_comboAnchUrl" ,
+    function ( ) 
+    {
+        return function ( params )
+        {
+            console.log ( "fnStr_comboAnchUrl" ) ;
+            return arguments.callee ;
+        } ;
+    }
+) ;
+mdu_root.filter
+(
+    "fnStr_cvtPostage" ,
+    function ( ) 
+    {
+        return function ( postage )
+        {
+            // console.log ( "fnStr_cvtPostage" ) ;
+            var postage = ( postage == 0 ) ? "免运费" : postage ;
+            return postage ;
+        } ;
+    }
+) ;
 mdu_root.provider
 (
     "pvd_http" ,
@@ -136,7 +168,7 @@ mdu_root.provider
 mdu_root.controller
 (
     "ctr-root" ,
-    function ( $scope , pvd_http , $http )
+    function ( $scope , pvd_http , $http /*, fnStr_comboAnchUrl*/ )
     {
         console.log ( "pvd_http:" , pvd_http ) ;
         var pgp_docSerh = { scm : "malldata" , tbNamesStr : "shoe,overcoat" } ;
@@ -157,9 +189,10 @@ mdu_root.controller
         pvd_http.fn_getAjax 
         ( 
             {
-                $scope      : $scope ,
-                $http       : $http ,
-                pgp_docSerh : pgp_docSerh ,
+                $scope              : $scope ,
+                $http               : $http ,
+                pgp_docSerh         : pgp_docSerh ,
+                // fnStr_comboAnchUrl  : fnStr_comboAnchUrl
                 // bol_isEmer  : false 
             } 
         ) ;

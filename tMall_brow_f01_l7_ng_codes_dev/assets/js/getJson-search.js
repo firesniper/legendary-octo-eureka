@@ -84,7 +84,7 @@
 		var str_pgKey = pgp_docSerh [ "pgKey" ] ;
 		
 		params.reqInc = !params.reqInc || isNaN ( params.reqInc ) ? 0 : params.reqInc ; 
-		if ( params.reqInc > 5 ) return ;
+		if ( params.reqInc > 0 ) return ;
 		var bol_isEmer          = params && params.bol_isEmer ? params.bol_isEmer : false ;
 		var str_emerUrl         = params.pgp_docSerh.fnStr_getServEmerUrl () ;
 		var reqInc              = params && params.reqInc  ? params.reqInc : 0 ;
@@ -133,7 +133,7 @@
 					jary_reduceData		: jary_data ,
 					dom_dom				: $page , 
 					qad_anchor			: qad_anchor , 
-					fnStr_getDomPatt : fnStr_getDomPatt , 
+					fnStr_getDomPatt 	: fnStr_getDomPatt , 
 					// str_pgKey			: str_pgKey 
 					
 				}
@@ -144,7 +144,7 @@
 		(
 			{
 				// url : "http://localhost:8081/mall_a01/overcoat?" ,
-				url				: str_servUri ,
+				url				: str_emerUrl ,
 				crossDomain 	: true ,
 				type			: "get" ,
 				dataType		: "jsonp" ,
