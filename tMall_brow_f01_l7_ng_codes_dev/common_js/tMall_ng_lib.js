@@ -22,12 +22,14 @@
             .jsonp ( url ) 
             .success 
             ( 
-                function ( data ) 
+                function ( json_data ) 
                 {
-                    var items = data.overcoatresult ;
+                    var jary_conData = json_data.fnJary_concatJa () ;
+                    jary_conData.fnPgp_setIndex () ;
+                    var items = jary_conData ;
                     for ( var i = 0 ; i < items.length ; i ++ ) 
                     {
-                        this.items.push ( items [ i ]/*.data*/ ) ;
+                        this.items.push ( items [ i ]/*.json_data*/ ) ;
                     }
                     this.after = "t3_" + this.items [ this.items.length - 1 ].id ;
                     this.busy = false ;

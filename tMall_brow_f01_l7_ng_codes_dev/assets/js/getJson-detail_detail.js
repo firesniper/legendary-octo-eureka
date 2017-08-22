@@ -13,8 +13,8 @@
 		var jpgp_data = jary_data[ 0 ] ;
 		console.log( "jpgp_data:" , jpgp_data ) ;
 		var curPageSearch = location.search ;
-		var prePageSearch = pgp_docSerh[ "prePageSearch" ] ;
-		console.log( "prePageSearch:" , prePageSearch ) ;
+		// var prePageSearch = pgp_docSerh[ "prePageSearch" ] ;
+		// console.log( "prePageSearch:" , prePageSearch ) ;
 		// $( document ).on(
 		// 	"pageInit" ,
 		// 	function ( e , pageId , $page ) 
@@ -191,7 +191,7 @@
           {
             pgp_docSerh              : pgp_docSerh , 
             // str_servCls           : pgp_docSerh[ Object.keys( pgp_docSerh )[ 0 ] ] , 
-            qad_anchor            : $( ".page-detail" ) , 
+            qad_anchor            : $( ".page-detail.qad-anch" ) , 
             fnStr_getDomPatt   : defGetDomStrPatt , 
             fn_cb                 : null , 
             $page                 : $page ,
