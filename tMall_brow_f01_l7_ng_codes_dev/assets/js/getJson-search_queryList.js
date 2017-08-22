@@ -15,7 +15,7 @@
 		var curPageSearch = location.search ;
 		var pgp_docSerh = String.prototype.fnPgp_getDocSerh() ;
 		pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
-		var prePageSearch = pgp_docSerh[ "prePageSearch" ] ;
+		// var prePageSearch = pgp_docSerh[ "prePageSearch" ] ;
 // 		$( document ).on(
 // 			"pageInit" ,
 // 			function ( e , pageId , $page ) 
@@ -38,13 +38,13 @@
 				   '<li>'
                   +'    <div class="item-content list-item">'
                   +'        <div class="p">'
-                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + num_idx/*str_pgKey*/ + ' " title="">'
+                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + jpgp.index + ' " title="">'
                   +'                <img class="p-pic" src=" ' + jpgp.link + ' " style="visibility: visible;">'
                   +'                <span class="flag c-icon-pt"></span>'
                   +'              </a>'
                   +'        </div>'
                   +'        <div class="d">'
-                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + num_idx/*str_pgKey*/ + ' " title="">'
+                  +'            <a href=" ' + document.baseURI + 'home/goods-detail.html' + location.search + "&pgKey=" + jpgp.index + ' " title="">'
                   +'                <h3 class="d-title">  ' + jpgp.title + ' </h3>'
                   +'            </a>'
                   +'            <p class="d-price">'
@@ -89,7 +89,7 @@
 					{
 						pgp_docSerh			: pgp_docSerh , 
 						// str_servCls			: Object.keys( pgp_docSerh )[ 0 ] , 
-						qad_anchor			: $( ".list-container.page-container" ) , 
+						qad_anchor			: $( ".list-container.page-container.qad_anch" ) , 
 						fnStr_getDomPatt	: defGetDomStrPatt ,
 						fn_cb				: undefined ,
 						$page				: null ,
@@ -246,11 +246,12 @@
 							{
 								pgp_docSerh			: pgp_docSerh , 
 								// str_servCls			: pgp_docSerh[ Object.keys( pgp_docSerh )[ 0 ] ] , 
-								qad_anchor			: $( ".list-container.page-container" ) , 
+								qad_anchor			: $( ".list-container.page-container.qad_anch" ) , 
 								fnStr_getDomPatt : defGetDomStrPatt ,
 								fn_cb				: undefined ,
 								$page				: $page ,
-								str_sortType		: dataValue
+								str_sortType		: dataValue ,
+								num_deadLineInc		: 6 
 
 							} 
 						) ;

@@ -3,6 +3,10 @@
   <head>
           @@include( "../template/temp_headA01.html" ) 
 
+
+    <script type= "text/javascript" src= "assets/js/ngGetJson-search.js"></script>
+<script type= "text/javascript" src= "assets/js/ngGetJson-search_queryList.js"></script>
+
    <!--<script type= "text/javascript" src= "common_js/init_appmls_queryList.js"></script>-->
     <!-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
@@ -158,10 +162,42 @@
              
 
                 <div class="list-block search-list list-view">
-                  <ul class="list-container page-container">
-
+                  <ul class="list-container page-container" ng-controller= "ctr-root" infinite-scroll='reddit.nextPage()' infinite-scroll-distance= "1" 
+                  infinite-scroll-disabled='reddit.busy' 
+                  infinite-scroll-listen-for-event="list:filtered"
+                  >
+                     <li ng-repeat= "jpgp in reddit.items" >
+                        <div class="item-content list-item">
+                            <div class="p">
+                                <a href="{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="">
+                                    <img class="p-pic" src="{{ jpgp.link }}" style="visibility: visible;">
+                                    <span class="flag c-icon-pt"></span>
+                                    </a>
+                            </div>
+                            <div class="d">
+                                <a href= "{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="">
+                                    <h3 class= "d-title"> {{ jpgp.title }} </h3>
+                                </a>
+                                <p class="d-price">
+                                    <em class="h">
+                                        <span class="price-icon">¥</span>
+                                        <span class="font-num"> {{ jpgp.price_integer }} </span>
+                                    </em>
+                                    <del></del>
+                                </p>
+                                <div class="d-main">
+                                    <p class="d-freight"> {{ jpgp.postage|fil_cvtPostage }} </p>
+                                    <p class="d-num">
+                                    <span class="font-num"> {{ jpgp.sales }} </span>人付款
+                                    </p>
+                                    <p class="d-area"> {{ jpgp.delivery }} </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="icons-group"></div>
+                    </li>
                    
-                </ul>
+                  </ul>
               </div><!-- list-block end -->
               <!-- 加载提示符 -->
               <div class="infinite-scroll-preloader">

@@ -49,7 +49,7 @@
 			 + '           </div>'
 			 + '         </div>'
 			 + '         <div class="card-footer">'
-			 + '           <span class=" ' + jpgp_data.sales + ' </span>'
+			 + '           <span class="link"> ' + jpgp_data.sales + ' </span>'
 			 + '           <span class="link">Comment(20)</span>'
 			 + '         </div>'
 			 + '       </div>'
@@ -83,7 +83,8 @@
 						fnStr_getDomPatt : defGetDomStrPatt ,
 						fn_cb				: undefined ,
 						$page				: $page ,
-						str_sortType		: "_bid"
+						str_sortType		: "_bid" ,
+						num_deadLineInc		: 4 
 					} 
 				) ;
 				

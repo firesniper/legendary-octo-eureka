@@ -79,7 +79,7 @@
 									fn_defCb ; */
 		var $page				=   params.$page ;
 		var str_sortType		=   params && params.str_sortType ? params.str_sortType : "_bid" ;
-
+		var num_deadLineInc		=   params.num_deadLineInc ;
 		
 		var str_pgKey = pgp_docSerh [ "pgKey" ] ;
 		
@@ -109,7 +109,7 @@
 						jary_conData ;
 
 			jary_data.fnPgp_setIndex () ;
-			var ary_subRetData = jary_data.splice ( 0 , 6 ) ;
+			var ary_subRetData = jary_data.splice ( 0 , num_deadLineInc ? num_deadLineInc : 4 ) ;
 
 			var str_domTemp = $tMallCompo.fnStr_getDomTemp
 			( 
@@ -118,8 +118,7 @@
 					fnStr_getDomPatt			: fnStr_getDomPatt , 
 					/*num_startIdx	: 0 , 
 					num_len			: 6 , */
-					// str_pgKey		: str_pgKey ,
-					ary_subRetData	: ary_subRetData  
+					ary_subRetData	: ary_subRetData /*jary_data*/ 
 
 				}
 			) ;
@@ -130,12 +129,11 @@
 			( 
 				{
 					// pgp_reduceData		: pgp_data.pgp_reduceData , 
-					jary_reduceData		: jary_data ,
+					jary_reduceData		:  jary_data  /*ary_subRetData*/ ,
 					dom_dom				: $page , 
 					qad_anchor			: qad_anchor , 
 					fnStr_getDomPatt 	: fnStr_getDomPatt , 
-					// str_pgKey			: str_pgKey 
-					
+					num_deadLineInc		: num_deadLineInc
 				}
 			) ;
 			// $.init() ;
@@ -185,6 +183,11 @@
 							{
 								fn_ajaxSucc ( json_data ) ;
 							} ,
+							error 			: function ( XMLHttpRequest , textStatus , errorThrown )
+							{
+								
+							}
+								
 						}
 					) ;
 					params.bol_isEmer = true ;

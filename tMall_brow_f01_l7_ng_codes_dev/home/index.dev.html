@@ -12,7 +12,10 @@
   <link rel="stylesheet" href="dist/css/light7-swipeout.css">-->
   <!--<link rel="stylesheet" href="css/app.css">-->
     <title>Light7商城</title>
-    <script type= "text/javascript" src= "assets/js/ngGetJson_index.js"></script>
+
+    <script type= "text/javascript" src= "assets/js/ngGetJson-search.js"></script>
+    <script type= "text/javascript" src= "assets/js/ngGetJson-search_index.js"></script>
+    <!--<script type= "text/javascript" src= "assets/js/ngGetJson-search_queryList.js"></script>-->
 </head>
 <body>
 
@@ -50,9 +53,26 @@
       <div class="preloader"></div>
       <div class="pull-to-refresh-arrow"></div>
     </div>
-    <div class="list">
-     
-    </div>
+     <div class="list list-anch" ng-controller= "ctr-root" >
+         <!--<a ng-repeat= "jpgp in jary_data" href="{{ str_baseUri }}home/goods-detail.html{{ str_docSerh }}&pgKey={{jpgp.index}}"   >
+                <div class="card color-default">
+                    <div style="" valign="bottom" class="card-header color-white no-border no-padding">
+                      <img class="card-cover" ng-src= "{{ jpgp.link }}""   alt="">
+                    </div>
+                    <div class="card-content">
+                      <div class="card-content-inner">
+                        <p>  {{ jpgp.title }}  </p>
+                        <p class="color-gray">@2015/01/15</p>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <span class="link">  {{ jpgp.sales }}  </span>
+                      <span class="link">Comment(20)</span>
+                    </div>
+                  </div>
+            </a> -->
+           
+       </div>
     <div class="infinite-scroll-preloader">
       <div class="preloader"></div>
     </div>
