@@ -181,6 +181,7 @@
         var $scope      = params.$scope ;
         var $http       = params.$http ;
         var pvd_http    = params.pvd_http ;
+        var str_getDataModeFlag    = params.str_getDataModeFlag ;
 
         console.log ( "pvd_http:" , pvd_http ) ;
         $scope.str_baseUri = document.baseURI ;
@@ -215,29 +216,37 @@
                                         '&' : 
                                         '?' )
                                         + "jsonp=JSON_CALLBACK" ;
+        switch ( str_getDataModeFlag )
+        {
+            case 0 :
+                pvd_http.fn_getAjax 
+                ( 
+                    {
+                        $scope                      : $scope ,
+                        $http                       : $http ,
+                        str_servWholeUri_ngJsonp    : str_servWholeUri_ngJsonp ,
+                        str_emerUrl_ngJsonp         : str_emerUrl_ngJsonp
+                        // pgp_docSerh         : pgp_docSerh ,
+                        // fnStr_comboAnchUrl  : fnStr_comboAnchUrl
+                        // bol_isEmer  : false 
+                    } 
+                ) ;
+            break ;
+            case 1 :
+                var cstru_Reddit = pvd_http.fnCstru_getReddit
+                (
+                    {
+                        $http                       : $http ,
+                        str_servWholeUri_ngJsonp    : str_servWholeUri_ngJsonp ,
+                        str_emerUrl_ngJsonp         : str_emerUrl_ngJsonp
+                    }
+                ) ;
+                $scope.reddit = new cstru_Reddit () ;
+
+            break ;
+        }
         
-        /*pvd_http.fn_getAjax 
-        ( 
-            {
-                $scope                      : $scope ,
-                $http                       : $http ,
-                str_servWholeUri_ngJsonp    : str_servWholeUri_ngJsonp ,
-                str_emerUrl_ngJsonp         : str_emerUrl_ngJsonp
-                // pgp_docSerh         : pgp_docSerh ,
-                // fnStr_comboAnchUrl  : fnStr_comboAnchUrl
-                // bol_isEmer  : false 
-            } 
-        ) ;*/
         
-        var cstru_Reddit = pvd_http.fnCstru_getReddit
-        (
-            {
-                $http                       : $http ,
-                str_servWholeUri_ngJsonp    : str_servWholeUri_ngJsonp ,
-                str_emerUrl_ngJsonp         : str_emerUrl_ngJsonp
-            }
-        ) ;
-        $scope.reddit = new cstru_Reddit () ;
     } ;
     
     var tMallNgCompo = 

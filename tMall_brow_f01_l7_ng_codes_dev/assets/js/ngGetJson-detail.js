@@ -5,8 +5,6 @@
         var pgp_docSerh = params && params.pgp_docSerh ? 
                           params.pgp_docSerh :
                         { scm : "malldata" , tbNamesStr : "shoe,overcoat" } ;
-        var str_getDataModeFlag = params.str_getDataModeFlag ;
-
         pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
 
         console.log ( "angular:" , angular ) ;
@@ -111,8 +109,7 @@
                     { 
                         $scope      : $scope , 
                         $http       : $http ,
-                        pvd_http    : pvd_http ,
-                        str_getDataModeFlag    : str_getDataModeFlag 
+                        pvd_http    : pvd_http  
                     }   
                 ) ;
 
