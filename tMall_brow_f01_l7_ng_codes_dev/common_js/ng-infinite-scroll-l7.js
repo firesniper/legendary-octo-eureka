@@ -107,7 +107,7 @@ angular.module('infinite-scroll', []).value('THROTTLE_MILLISECONDS', null).direc
           handler = throttle(handler, THROTTLE_MILLISECONDS);
         }
         scope.$on('$destroy', function() {
-          container.unbind('scroll', handler);
+          container.unbind(/*'scroll'*/'infinite', handler);
           if (unregisterEventListener != null) {
             unregisterEventListener();
             unregisterEventListener = null;
@@ -137,11 +137,11 @@ angular.module('infinite-scroll', []).value('THROTTLE_MILLISECONDS', null).direc
         handleInfiniteScrollUseDocumentBottom(scope.infiniteScrollUseDocumentBottom);
         changeContainer = function(newContainer) {
           if (container != null) {
-            container.unbind('scroll', handler);
+            container.unbind(/*'scroll'*/'infinite', handler);
           }
           container = newContainer;
           if (newContainer != null) {
-            return container.bind('scroll', handler);
+            return container.bind(/*'scroll'*/'infinite', handler);
           }
         };
         changeContainer(windowElement);

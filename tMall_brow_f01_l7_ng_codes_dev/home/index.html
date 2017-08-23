@@ -4,7 +4,7 @@
 <script type= "text/javascript" src= "common_js/append_mls_2-1-20170814.js"></script>
 <script type= "text/javascript" src= "common_js/append_mls.config.js" ></script> 
 <script type= "text/javascript" src="common_js/tMall_lib.js" ></script> 
-    <script src= "assets/js/jquery-2.1.4.js"></script>
+    <script src= "common_js/jquery-2.1.4.js"></script>
 
 <script type= "text/javascript" src="common_js/angular-1.0.1.min.js" ></script> 
 <script src="https://cdn.bootcss.com/ngInfiniteScroll/1.0.0/ng-infinite-scroll.js"></script>
@@ -85,7 +85,7 @@
          <a ng-repeat= "jpgp in jary_data" href="{{ str_baseUri }}home/goods-detail.html{{ str_docSerh }}&pgKey={{jpgp.index}}"   >
                 <div class="card color-default">
                     <div style="" valign="bottom" class="card-header color-white no-border no-padding">
-                      <img class="card-cover" ng-src= "{{ jpgp.link }}""   alt="">
+                      <img class="card-cover" ng-src= "{{ jpgp.link }}"   alt="">
                     </div>
                     <div class="card-content">
                       <div class="card-content-inner">

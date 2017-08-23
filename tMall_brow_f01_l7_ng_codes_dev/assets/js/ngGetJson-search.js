@@ -106,7 +106,7 @@
                                                 '?' )
                                                 + "jsonp=JSON_CALLBACK" ;
 
-                /*$tMallNgCompo.ctr_root 
+                $tMallNgCompo.ctr_root 
                 ( 
                     { 
                         $scope      : $scope , 
@@ -114,20 +114,20 @@
                         pvd_http    : pvd_http ,
                         str_getDataModeFlag    : str_getDataModeFlag 
                     }   
-                ) ;*/
+                ) ;
 
                 // $scope.reddit = new Reddit () ;
-                $scope.images = [1];
+                /*$scope.images = [1];
 
                 $scope.loadMore = function() {
                     var last = $scope.images[$scope.images.length - 1];
-                    for(var i = 1; i <= 1; i++) {
+                    for(var i = 1; i <= 5; i++) {
                     $scope.images.push(last + i);
                     }
                 } ;
                 $scope.red = function () {
                     console.log ( "red:" ) ;
-                } ;
+                } ;*/
             }
         ) ; 
         angular.element ( document ).ready  

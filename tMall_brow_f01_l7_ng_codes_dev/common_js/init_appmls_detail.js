@@ -8,7 +8,7 @@ $append_mls.appendIni(
 						domParent : "head" ,
 					} ,
 				// jquery : {
-				// 		src : document.baseURI + "assets/js/jquery-2.1.4.js" ,
+				// 		src : document.baseURI + "common_js/jquery-2.1.4.js" ,
 				// 		domParent : "head" ,
 				// } ,
 			} ,
@@ -35,7 +35,7 @@ $append_mls.appendIni(
 				{
 					// angular :  "http://code.angularjs.org/angular-1.0.1.min.js" ,
 					zepto : document.baseURI + "assets/js/zepto.js" ,
-					// jquery : document.baseURI + "assets/js/jquery-2.1.4.js" ,
+					// jquery : document.baseURI + "common_js/jquery-2.1.4.js" ,
 					// zepto : document.baseURI + "//g.alicdn.com/sj/lib/zepto/zepto.js" ,
 					
 				} ,
