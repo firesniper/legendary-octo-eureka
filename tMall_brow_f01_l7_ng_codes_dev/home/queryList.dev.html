@@ -6,7 +6,7 @@
 
     <script type= "text/javascript" src= "assets/js/ngGetJson-search.js"></script>
 <script type= "text/javascript" src= "assets/js/ngGetJson-search_queryList.js"></script>
-    <script type= "text/javascript" src= "assets/js/ngGetJson-search_detail.js"></script>
+    <!--<script type= "text/javascript" src= "assets/js/ngGetJson-search_detail.js"></script>-->
    <!--<script type= "text/javascript" src= "common_js/init_appmls_queryList.js"></script>-->
     <!-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
@@ -163,9 +163,9 @@
 
                 <div class="list-block search-list list-view">
                   <ul class="list-container page-container" ng-controller= "ctr-root" infinite-scroll='reddit.nextPage()' infinite-scroll-distance= "1" 
-                  infinite-scroll-disabled='reddit.busy' 
-                  infinite-scroll-listen-for-event="list:filtered"
+                  infinite-scroll-disabled= "enabled"
                   >
+                    <!--<img ng-repeat='image in images' ng-src='http://placehold.it/225x250&text={{image}}'>-->
                      <li ng-repeat= "jpgp in reddit.items" >
                         <div class="item-content list-item">
                             <div class="p">

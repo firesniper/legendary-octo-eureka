@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-<base href= "http://localhost:3000/public/tMall_brow_f01_l7_ng_codes_dev/"/>
-<script type= "text/javascript" src= "common_js/append_mls_2-1-20170814.js"></script>
-<script type= "text/javascript" src= "common_js/append_mls.config.js" ></script> 
-<script type= "text/javascript" src="common_js/tMall_lib.js" ></script> 
-<script src= "common_js/jquery-2.1.4.js"></script>
+  <head>
+          <base href= "http://localhost:3000/public/tMall_brow_f01_l7_ng_codes_dev/"/>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,13 +21,49 @@
 <link rel="stylesheet" href="dist/css/light7-swipeout.css"> 
 <link rel="stylesheet" href="css/app.css">
 
-<title>Light7 Demo</title>
-<meta name="description" content="light7: Build mobile apps with simple HTML, CSS, and JS components.">
+<script type= "text/javascript" src= "common_js/append_mls_2-1-20170814.js"></script>
+<script type= "text/javascript" src= "common_js/append_mls.config.js" ></script> 
+<script type= "text/javascript" src="common_js/tMall_lib.js" ></script> 
+    <script src= "common_js/jquery-2.1.4.js"></script>
 
-<link rel="stylesheet" href= "assets/css/tb_search_list.css" />
+<script type= "text/javascript" src="common_js/angular-1.0.1.min.js" ></script> 
+<script type= "text/javascript" src= "common_js/ng-infinite-scroll_1.0.0.js"></script>
 
-</head>
-<body>
+<script type= "text/javascript" src="common_js/tMall_ng_lib.js" ></script> 
+ 
+
+
+    <script type= "text/javascript" src= "assets/js/ngGetJson-search.js"></script>
+<script type= "text/javascript" src= "assets/js/ngGetJson-search_queryList.js"></script>
+    <!--<script type= "text/javascript" src= "assets/js/ngGetJson-search_detail.js"></script>-->
+   <!--<script type= "text/javascript" src= "common_js/init_appmls_queryList.js"></script>-->
+    <!-- <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>Light7 Demo</title>
+    <meta name="description" content="light7: Build mobile apps with simple HTML, CSS, and JS components.">
+    <!-- <meta name="author" content="任行">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+    <!-- <meta http-equiv="refresh" content="1;URL=./queryList.html" /> -->
+
+    <!-- Google Web Fonts -->
+
+    <!-- <link rel="stylesheet" href="/dist/css/light7.css?r=201603281">
+    <link rel="stylesheet" href="/dist/css/light7-swiper.css">
+    <link rel="stylesheet" href="/dist/css/light7-swipeout.css">
+    <link rel="stylesheet" href="/assets/css/demos.css"> -->
+  <!--<link rel="stylesheet" href="css/app.css">-->
+  <link rel="stylesheet" href= "assets/css/tb_search_list.css" />
+
+    <!-- <link rel="apple-touch-icon-precomposed" href="/assets/img/apple-touch-icon-114x114.png"> -->
+    <!-- <script src="/common_js/jquery-2.1.4.js"></script> -->
+    <script>
+      //ga
+    </script>
+  </head>
+  <body>
     <div id="page-infinite-scroll" class="page">
         <header class="bar bar-nav">
             
@@ -154,7 +186,7 @@
          </div> --> <!-- bar end -->
         
                     
-        <div class="content " id='' data-distance="100">
+        <div class="content infinite-scroll" id='' data-distance="100">
            
              
 
@@ -204,8 +236,13 @@
         
 </div><!-- page-searchbar end -->
 
- 
-<script src="dist/js/light7.js"></script> 
+    <!-- <script src="/dist/js/light7.js"></script>
+    <script src="/dist/js/light7-swiper.js"></script>
+    <script src="/dist/js/light7-city-picker.js"></script>
+    <script src="/dist/js/light7-swipeout.js"></script>
+    <script src="/assets/js/demos.js?r=201603281"></script> -->
+    <!--<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+--><script src="dist/js/light7.js"></script> 
 <script src="dist/js/light7-swiper.js"></script>
 <script src="dist/js/light7-swipeout.js"></script> 
  
@@ -213,15 +250,19 @@
     <script src= "assets/js/getJson-search_queryList.js"></script>
     <script src= "assets/js/getJson-detail_detail.js"></script>
 
-<script type= "text/javascript" src="common_js/angular-1.0.1.min.js" ></script> 
-<script src= "common_js/ng-infinite-scroll_1.0.0.js"></script>
-
-<script type= "text/javascript" src= "common_js/tMall_ng_lib.js" ></script> 
-    <script type= "text/javascript" src= "assets/js/ngGetJson-search.js"></script>
-<script type= "text/javascript" src= "assets/js/ngGetJson-search_queryList.js"></script>
-    <script type= "text/javascript" src= "assets/js/ngGetJson-search_detail.js"></script>
-
     <script src= "js/init.js" ></script>
 
+    <script type= "text/javascript"       >
+//       window.onload = function ()
+//       {
+//             console.log( "onload" ) ;
+// //               location.reload( true ) ;
+// //               location=location ;
+//       } ;
+//       document.onreadystatechange = function ()
+//       {
+// //           console.log( "readyState:" , document.readyState ) ;
+//       } ;
+  </script>
   </body>
 </html>
