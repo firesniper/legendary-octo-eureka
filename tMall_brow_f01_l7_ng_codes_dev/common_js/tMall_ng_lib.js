@@ -26,11 +26,18 @@
                 {
                     var jary_conData = json_data.fnJary_concatJa () ;
                     jary_conData.fnPgp_setIndex () ;
-                    var items = jary_conData ;
-                    for ( var i = 0 ; i < items.length ; i ++ ) 
+                    var jary_reduceData = jary_conData ;
+                    var ary_selectSubData = jary_reduceData.splice 
+						(
+							 0 , 
+							 4
+							//  num_deadLineInc 
+						) ;
+                    this.items = this.items.concat ( ary_selectSubData ) ;
+                    /*for ( var i = 0 ; i < items.length ; i ++ ) 
                     {
-                        this.items.push ( items [ i ]/*.json_data*/ ) ;
-                    }
+                        this.items.push ( items [ i ] ) ;
+                    } ;*/
                     this.after = "t3_" + this.items [ this.items.length - 1 ].id ;
                     this.busy = false ;
                 }

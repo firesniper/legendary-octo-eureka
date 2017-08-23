@@ -109,7 +109,7 @@
 						jary_conData ;
 
 			jary_data.fnPgp_setIndex () ;
-			var ary_subRetData = jary_data.splice ( 0 , num_deadLineInc ? num_deadLineInc : 4 ) ;
+			var ary_selectSubData = jary_data.splice ( 0 , num_deadLineInc ? num_deadLineInc : 4 ) ;
 
 			var str_domTemp = $tMallCompo.fnStr_getDomTemp
 			( 
@@ -118,7 +118,7 @@
 					fnStr_getDomPatt			: fnStr_getDomPatt , 
 					/*num_startIdx	: 0 , 
 					num_len			: 6 , */
-					ary_subRetData	: ary_subRetData /*jary_data*/ 
+					ary_selectSubData	: ary_selectSubData /*jary_data*/ 
 
 				}
 			) ;
@@ -129,7 +129,7 @@
 			( 
 				{
 					// pgp_reduceData		: pgp_data.pgp_reduceData , 
-					jary_reduceData		:  jary_data  /*ary_subRetData*/ ,
+					jary_reduceData		:  jary_data  /*ary_selectSubData*/ ,
 					dom_dom				: $page , 
 					qad_anchor			: qad_anchor , 
 					fnStr_getDomPatt 	: fnStr_getDomPatt , 

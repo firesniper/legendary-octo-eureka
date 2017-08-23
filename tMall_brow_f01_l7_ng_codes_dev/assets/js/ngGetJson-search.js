@@ -68,7 +68,7 @@
                             for ( var i = 0 ; i < items.length ; i ++ ) 
                             {
                                 this.items.push ( items [ i ].data ) ;
-                            }
+                            } ;
                             this.after = "t3_" + this.items [ this.items.length - 1 ].id ;
                             this.busy = false ;
                         }
@@ -106,7 +106,7 @@
                                                 '?' )
                                                 + "jsonp=JSON_CALLBACK" ;
 
-                $tMallNgCompo.ctr_root 
+                /*$tMallNgCompo.ctr_root 
                 ( 
                     { 
                         $scope      : $scope , 
@@ -114,12 +114,20 @@
                         pvd_http    : pvd_http ,
                         str_getDataModeFlag    : str_getDataModeFlag 
                     }   
-                ) ;
+                ) ;*/
 
-                /*$scope.reddit = new Reddit () ;
+                // $scope.reddit = new Reddit () ;
+                $scope.images = [1];
+
+                $scope.loadMore = function() {
+                    var last = $scope.images[$scope.images.length - 1];
+                    for(var i = 1; i <= 1; i++) {
+                    $scope.images.push(last + i);
+                    }
+                } ;
                 $scope.red = function () {
                     console.log ( "red:" ) ;
-                } ;*/
+                } ;
             }
         ) ; 
         angular.element ( document ).ready  

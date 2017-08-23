@@ -192,11 +192,11 @@
              
 
                 <div class="list-block search-list list-view">
-                  <ul class="list-container page-container" ng-controller= "ctr-root" infinite-scroll='reddit.nextPage()' infinite-scroll-distance= "1" 
-                  infinite-scroll-disabled='reddit.busy' 
-                  infinite-scroll-listen-for-event="list:filtered"
+                  <ul class="list-container page-container" ng-controller= "ctr-root" infinite-scroll='loadMore()' infinite-scroll-distance= "1" 
+                  infinite-scroll-disabled= "!enabled"
                   >
-                     <li ng-repeat= "jpgp in reddit.items" >
+                    <img ng-repeat='image in images' ng-src='http://placehold.it/225x250&text={{image}}'>
+                     <!--<li ng-repeat= "jpgp in reddit.items" >
                         <div class="item-content list-item">
                             <div class="p">
                                 <a href="{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="">
@@ -226,7 +226,7 @@
                         </div>
                         <div class="icons-group"></div>
                     </li>
-                   
+                   -->
                   </ul>
               </div><!-- list-block end -->
               <!-- 加载提示符 -->

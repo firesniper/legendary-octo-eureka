@@ -127,19 +127,19 @@
 // 			return ;
 		} ;
 		idxData = idxData ? idxData : data.setIndex() ;
-		var subRetData = data.splice( startIdx , length ) ;
-		console.log( "subRetData:" , subRetData.length ) ;
+		var selectSubData = data.splice( startIdx , length ) ;
+		console.log( "selectSubData:" , selectSubData.length ) ;
 // 		reduceCount = reduceCount == 0 ? length : reduceCount ;
-		reduceCount += subRetData.length ;
+		reduceCount += selectSubData.length ;
 		
 		var strBuffer = [] ;
 		
-		hfA01 : for ( var subRetDataKey in subRetData )
+		hfA01 : for ( var selectSubDataKey in selectSubData )
 		{
-			if ( !subRetData.hasOwnProperty( subRetDataKey ) ) continue hfA01 ;
-// 			var searchKey = reduceCount - Math.abs( subRetData.length - subRetDataKey ) ;
-			var searchKey = subRetData[ subRetDataKey ][ "index" ] ;
-			var domStrTemp = callback( subRetData , subRetDataKey , searchKey , pgKey ) ;
+			if ( !selectSubData.hasOwnProperty( selectSubDataKey ) ) continue hfA01 ;
+// 			var searchKey = reduceCount - Math.abs( selectSubData.length - selectSubDataKey ) ;
+			var searchKey = selectSubData[ selectSubDataKey ][ "index" ] ;
+			var domStrTemp = callback( selectSubData , selectSubDataKey , searchKey , pgKey ) ;
 			strBuffer.push( domStrTemp ) ;
 		} ;
 		// console.log( "strBuffer:" , strBuffer ) ;
