@@ -89,7 +89,7 @@
 					{
 						pgp_docSerh			: pgp_docSerh , 
 						// str_servCls			: Object.keys( pgp_docSerh )[ 0 ] , 
-						qad_anchor			: $( ".list-container.page-container.qad_anch" ) , 
+						qad_anchor			: $( ".list-container.page-container.qad-anch" ) , 
 						fnStr_getDomPatt	: defGetDomStrPatt ,
 						fn_cb				: undefined ,
 						$page				: null ,

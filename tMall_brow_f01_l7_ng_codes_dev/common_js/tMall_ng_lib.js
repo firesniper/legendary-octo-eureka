@@ -251,6 +251,8 @@
         console.log ( "pvd_http:" , pvd_http ) ;
         $scope.str_baseUri = document.baseURI ;
         $scope.str_docSerh = window.pgp_envState.pgp_envOpt.str_docSerh ;
+        $scope.pgp_docSerh = window.pgp_envState.pgp_envOpt.pgp_docSerh ;
+        $scope.pgKey = window.pgp_envState.pgp_envOpt.pgp_docSerh.pgKey ;
         $scope.str_search = window.location.search ;
 
         /*var fnStr_getServEmerUrl = function ( params )

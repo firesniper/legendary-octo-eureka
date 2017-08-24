@@ -78,7 +78,7 @@
 									function () { return } : 
 									fn_defCb ; */
 		var $page				=   params.$page ;
-		var str_sortType		=   params && params.str_sortType ? params.str_sortType : "_bid" ;
+		var str_sortType		=   params && params.str_sortType ? params.str_sortType : "" ;
 		var num_deadLineInc		=   params.num_deadLineInc ;
 		
 		var str_pgKey = pgp_docSerh [ "pgKey" ] ;
@@ -99,9 +99,9 @@
 			
 			
 			var jary_conData = json_data.fnJary_concatJa () ;
-			jary_conData.fn_JaSortByType
+			jary_conData.fnJary_sortJaByType
 			( 
-				Object.pgp_jaTypeSerhMap [ str_sortType ] 
+				Object.pgp_jaToSortTypeMap [ str_sortType ] 
 			) ;
 			var jary_data = !isNaN( str_pgKey ) && str_pgKey != undefined && str_pgKey != null && str_pgKey !== "" ? 
 							new Array ( jary_conData[ str_pgKey ] ) 
