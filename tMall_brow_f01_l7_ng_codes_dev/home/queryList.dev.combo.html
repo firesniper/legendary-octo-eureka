@@ -93,7 +93,7 @@
                                 <div class="s-input-frame">
                                     <form class="c-form-suggest" id="J_Search" method="get" action="home/queryList.html?scm=MallData">
                                         <div class="s-form-search search-form">
-                                            <input type="search" name="scm" class="J_autocomplete" autocomplete="off" value="overcoat" style= "display:none;">
+                                            <input type="search" name="scm" class="J_autocomplete" autocomplete="off" value="malldata" style= "display:none;">
                                             <input type="search" name="dicStr" class="J_autocomplete" autocomplete="off" value="女">
                                             <button style="display: none ;">
                                                 <span></span>
@@ -198,13 +198,13 @@
                      <li ng-repeat= "jpgp in reddit.items" >
                         <div class="item-content list-item">
                             <div class="p">
-                                <a href="{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="">
+                                <a href="{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="" external>
                                     <img class="p-pic" src="{{ jpgp.link }}" style="visibility: visible;">
                                     <span class="flag c-icon-pt"></span>
                                     </a>
                             </div>
                             <div class="d">
-                                <a href= "{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="">
+                                <a href= "{{ baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{ jpgp.index }}" title="" external>
                                     <h3 class= "d-title"> {{ jpgp.title }} </h3>
                                 </a>
                                 <p class="d-price">

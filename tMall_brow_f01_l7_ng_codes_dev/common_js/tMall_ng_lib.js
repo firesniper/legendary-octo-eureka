@@ -166,7 +166,7 @@
                 // params.bol_isEmer = true ;
                 if ( Object.bol_isNullJson ( json_data ) ) 
                 {
-                    console.log ( "str_emerUrl:" , str_emerUrl ) ;
+                    // console.log ( "str_emerUrl:" , str_emerUrl ) ;
                     params.bol_isEmer = true ;
                     params.reqInc ++ ;
                     fn_getAjax ( params ) ;

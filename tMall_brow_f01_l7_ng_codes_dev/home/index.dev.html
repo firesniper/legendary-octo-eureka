@@ -54,7 +54,7 @@
       <div class="pull-to-refresh-arrow"></div>
     </div>
      <div class="list  " ng-controller= "ctr-root" >
-         <a ng-repeat= "jpgp in jary_data" href="{{ str_baseUri }}home/goods-detail.html{{ str_search }}&pgKey={{jpgp.index}}"   >
+         <a ng-repeat= "jpgp in jary_data" href="{{ str_baseUri }}home/goods-detail.html{{ str_docSerh }}&pgKey={{ jpgp.index }}" external  >
                 <div class="card color-default">
                     <div style="" valign="bottom" class="card-header color-white no-border no-padding">
                       <img class="card-cover" ng-src= "{{ jpgp.link }}"   alt="">

@@ -57,7 +57,7 @@
 	            + '    <div class="module-content item-list">'
 	            + '        <div class="row" >' ;
             var hotItemStr = 
-	              '          <a class="cat-item hot-item" href=" ' + moduleList.items[ 0 ].url + ' ">'
+	              '          <a class="cat-item hot-item" href=" ' + moduleList.items[ 0 ].url + ' " external >'
 	            + '            <span class="img-wrap valign-middle">'
 	            + '              <img alt="" src=" ' + moduleList.items[ 0 ].pic + ' ">'
 	            + '            </span>'
@@ -98,7 +98,7 @@
 	        	if ( moduleList.items.hasOwnProperty( key1 ) == false || condition1() ) continue fhA01 ;
 	        	// console.log( "moduleList.items:" , moduleList.items[ key1 ] ) ;
 	        	var strTemp = 
-	           	  '        <a class="cat-item" href=" ' + moduleList.items[ key1 ].url + ' ">'
+	           	  '        <a class="cat-item" href=" ' + moduleList.items[ key1 ].url + ' " external >'
 	            + '            <span class="img-wrap valign-middle">'
 	            + '              <img alt="" src=" ' + moduleList.items[ key1 ].pic + ' ">'
 	            + '            </span>'
@@ -138,7 +138,7 @@
 	        	if ( moduleList.items.hasOwnProperty( key1 ) == false ) continue fhA01 ;
 
      			var strBrandCon1 =
-            	  '         <a class="brand-item" href=" ' + moduleList.items[ key1 ].url + ' ">'
+            	  '         <a class="brand-item" href=" ' + moduleList.items[ key1 ].url + ' " external >'
 	            + '             <span class="img-wrap valign-middle">'
 	            + '                 <img alt="" src=" ' + moduleList.items[ key1 ].pic + ' ">'
 	            + '             </span>'

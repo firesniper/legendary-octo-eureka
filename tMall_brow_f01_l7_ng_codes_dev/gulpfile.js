@@ -105,7 +105,7 @@ let pgp_compileFd_less = pgp_gulpLib.fnPgp_compileFd
  
                 ]
             } ,
-            str_srcBaseUri : "http://PH_host:8080/abc/" ,
+            str_srcBaseUri : "ssurl" ,
             str_destBaseUri : "http://localhost:3000/public/tMall_brow_f01_l7_ng_codes_dev/" ,
             str_destVirPath : 2 ,
             /*"pgp_baseUri_ary" : 
