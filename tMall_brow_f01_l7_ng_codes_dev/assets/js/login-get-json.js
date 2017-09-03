@@ -126,7 +126,7 @@
 // 			throw new TypeError( "jsonData null" ) ;
 // 			return ;
 		} ;
-		idxData = idxData ? idxData : data.setIndex() ;
+		idxData = idxData ? idxData : data.fnPgp_setIndex () ;
 		var selectSubData = data.splice( startIdx , length ) ;
 		console.log( "selectSubData:" , selectSubData.length ) ;
 // 		reduceCount = reduceCount == 0 ? length : reduceCount ;

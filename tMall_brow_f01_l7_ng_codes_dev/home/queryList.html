@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="s-input-frame">
-                                    <form class="c-form-suggest" id="J_Search" method="get" action="home/queryList.html?scm=MallData">
+                                    <form class="c-form-suggest" id="J_Search" method="get" action="home/queryList.html?scm=MallData" direc-jsearch>
                                         <div class="s-form-search search-form">
                                             <input type="search" name="scm" class="J_autocomplete" autocomplete="off" value="malldata" style= "display:none;">
                                             <input type="search" name="dicStr" class="J_autocomplete" autocomplete="off" value="女">
@@ -162,11 +162,11 @@
                                             综合排序
                                             <span class="icons-checked-icon"></span>
                                         </li>
-                                        <li class="sort" data-value="_bid">
+                                        <li class="sort" data-value="_price">
                                             价格从高到低
                                             <span class="icons-checked-icon"></span>
                                         </li>
-                                        <li class="sort" data-value="bid">
+                                        <li class="sort" data-value="price">
                                             价格从低到高<span class="icons-checked-icon"></span>
                                         </li>
                                         <li class="sort" data-value="_ratesum">
@@ -193,6 +193,7 @@
                 <div class="list-block search-list list-view">
                   <ul class="list-container page-container" ng-controller= "ctr-root" infinite-scroll='reddit.nextPage()' infinite-scroll-distance= "1" 
                   infinite-scroll-disabled= "enabled"
+                   direc-list
                   >
                     <!--<img ng-repeat='image in images' ng-src='http://placehold.it/225x250&text={{image}}'>-->
                      <li ng-repeat= "jpgp in reddit.items" >

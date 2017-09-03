@@ -200,7 +200,7 @@
 					} 
 				) ;
 
-				var closeDropListHandle = function ( e ) 
+				/*var closeDropListHandle = function ( e ) 
 				{
 					// dropList.className += " droplist-expand" ;
 					// console.log( "$(dropList):" , $(dropList) ) ;
@@ -262,7 +262,7 @@
 
 						// } ;
 					} 
-				) ;
+				) ;*/
 
 				// $.init() ;
 			} ;

@@ -8,17 +8,38 @@
                   
         var fn_ajaxSucc = function ( params )
             {
-                var json_data   = params.json_data ;
-                // var _this       = params._this ;
+                var json_data       = params.json_data ;
+                var str_sortType    = params.str_sortType ;
+                var pgp_docSerh     = window.pgp_envState.pgp_envOpt.pgp_docSerh ;
+
                 var jary_conData = json_data.fnJary_concatJa () ;
-                jary_conData.fnPgp_setIndex () ;
-                var jary_reduceData = jary_conData ;
+                var str_pgKey = pgp_docSerh [ "pgKey" ] ;
+                
+                
+                var jary_queque = 
+                // jary_conData
+                jary_conData.fnJary_queueJary 
+                ( 
+                    /*{ 
+                        str_operator : "<" 
+                    } */
+                    Object.pgp_jaToSortTypeMap [ /*str_sortType*/"_bid" ] 
+                ) ;
+                var jary_data = !isNaN( str_pgKey ) && str_pgKey != undefined && str_pgKey != null && str_pgKey !== "" ? 
+							new Array ( jary_queque[ str_pgKey ] ) 
+							: 
+						jary_queque ;
+                        
+                jary_data.fnPgp_setIndex () ;
+                // jary_data.fnJary_decorateBit ( { str_operator : ">" } ) ;
+                var jary_reduceData = jary_data ;
                 var ary_selectSubData = jary_reduceData.splice 
-                    (
-                            0 , 
-                            jary_reduceData.length - 1 
-                        //  num_deadLineInc 
-                    ) ;
+                (
+                        0 , 
+                        jary_reduceData.length - 1 
+                    //  num_deadLineInc 
+                ) ;
+                Object.pgp_commonData.jary = ary_selectSubData ;
                 this.items = this.items.concat ( ary_selectSubData ) ;
                 /*for ( var i = 0 ; i < items.length ; i ++ ) 
                 {
@@ -130,12 +151,34 @@
         var str_servUri = bol_isEmer ? str_emerUrl_ngJsonp : str_servWholeUri_ngJsonp ;
         var fn_ajaxSucc = function ( params )
         {
-                var json_data   = params.json_data ;
-                var $scope      = params.$scope ;
+                var json_data       = params.json_data ;
+                var $scope          = params.$scope ;
+                var str_sortType    = params.str_sortType ;
+
                 console.log ( "json_data:" , json_data ) ;
+                var pgp_docSerh         = window.pgp_envState.pgp_envOpt.pgp_docSerh ;
+                // var _this       = params._this ;
                 var jary_conData = json_data.fnJary_concatJa () ;
-                jary_conData.fnPgp_setIndex () ;
-                $scope.jary_data = jary_conData ;
+                var str_pgKey = pgp_docSerh [ "pgKey" ] ;
+                
+                
+                var jary_queque = 
+                // jary_conData
+                jary_conData.fnJary_queueJary 
+                ( 
+                    /*{ 
+                        str_operator : "<" 
+                    } */
+                    Object.pgp_jaToSortTypeMap [ /*str_sortType*/"_bid" ] 
+                ) ;
+                var jary_data = !isNaN( str_pgKey ) && str_pgKey != undefined && str_pgKey != null && str_pgKey !== "" ? 
+							new Array ( jary_queque[ str_pgKey ] ) 
+							: 
+						jary_queque ;
+                jary_data.fnPgp_setIndex () ;
+                Object.pgp_commonData.jary = jary_data ;
+
+                $scope.jary_data = jary_data ;
                 /*var postage = ( postage = jpgp_data.postage ) == 0 ? "免运费" : postage ;
                 $scope.postage = postage ;*/
                 console.log ( "$scope:" , $scope ) ;

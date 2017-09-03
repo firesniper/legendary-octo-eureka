@@ -6,11 +6,11 @@
                           params.pgp_docSerh :
                         { scm : "malldata" , tbNamesStr : "shoe,overcoat" } ;
         var str_getDataModeFlag = params.str_getDataModeFlag ;
-
+        var mdu_root            = params.mdu_root ;
         pgp_docSerh.fn_bootDocSerhExtendEnvState (  ) ;
 
         console.log ( "angular:" , angular ) ;
-        var mdu_root = angular.module ( "mdu_root" , [ "infinite-scroll" ] ) ;
+        // var mdu_root = angular.module ( "mdu_root" , [ "infinite-scroll" ] ) ;
         mdu_root.value('THROTTLE_MILLISECONDS', 250) ;
         console.log ( "mdu_root:" , mdu_root ) ;
 
@@ -87,6 +87,8 @@
                 // console.log ( "pvd_http:" , pvd_http ) ;
                 
                 var pgp_docSerh         = window.pgp_envState.pgp_envOpt.pgp_docSerh ;
+			    
+                        
                 var str_emerUrl         = pgp_docSerh.fnStr_getServEmerUrl 
                 (
                     {
@@ -130,14 +132,14 @@
                 } ;*/
             }
         ) ; 
-        angular.element ( document ).ready  
+        /*angular.element ( document ).ready  
         (
             function ( $ )
             {
                 angular.bootstrap ( document , [ "mdu_root" ] ) ;
 
             }
-        ) ;
+        ) ;*/
     } ;
 
     /*var ngSection = 

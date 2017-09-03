@@ -99,14 +99,23 @@
 			
 			
 			var jary_conData = json_data.fnJary_concatJa () ;
-			jary_conData.fnJary_sortJaByType
+			/*jary_conData.fnJary_sortJaByType
 			( 
+				Object.pgp_jaToSortTypeMap [ str_sortType ] 
+			) ;*/
+			var jary_queque = 
+			// jary_conData
+			 jary_conData.fnJary_queueJary 
+			( 
+				/*{ 
+					str_operator : "<" 
+				} */
 				Object.pgp_jaToSortTypeMap [ str_sortType ] 
 			) ;
 			var jary_data = !isNaN( str_pgKey ) && str_pgKey != undefined && str_pgKey != null && str_pgKey !== "" ? 
-							new Array ( jary_conData[ str_pgKey ] ) 
+							new Array ( jary_queque[ str_pgKey ] ) 
 							: 
-						jary_conData ;
+						jary_queque ;
 
 			jary_data.fnPgp_setIndex () ;
 			var ary_selectSubData = jary_data.splice ( 0 , num_deadLineInc ? num_deadLineInc : 4 ) ;
